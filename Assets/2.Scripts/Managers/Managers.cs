@@ -10,8 +10,8 @@ public class Managers : MonoBehaviour
     static Managers s_instance;
     static bool s_initialized = false;
 
-    PoolManager _pool = new PoolManager();
-    public static PoolManager Pool { get { return Instance?._pool; } }
+    /*PoolManager _pool = new PoolManager();
+    public static PoolManager Pool { get { return Instance?._pool; } }*/
 
 
     public static Managers Instance

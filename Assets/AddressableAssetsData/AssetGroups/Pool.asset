@@ -10,21 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: Packed Assets
+  m_Name: Pool
   m_EditorClassIdentifier: 
-  m_GroupName: Packed Assets
+  m_GroupName: Pool
   m_Data:
     m_SerializedData: []
-  m_GUID: e7511ceab0de44e409e4bba3c24b4f3b
+  m_GUID: 5a0f26b7b54f3a64984c98af3a2caf0e
   m_SerializeEntries:
-  - m_GUID: 32190c334d50a454296518c5f9e2e4ea
-    m_Address: Player
+  - m_GUID: 1f7c7e928cb80a040aa2ef6d567b66cc
+    m_Address: Enemy
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - pool
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 64a4855b209731d489e39585180cc109, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: d78740a96b5771245b40b725c9d72963, type: 2}
-    - {fileID: 11400000, guid: 4959616dbc5a45d49a5cc0b0d76bbfe2, type: 2}
+    - {fileID: 11400000, guid: 194ec7ae5a670ab43bbf9284eba07372, type: 2}
+    - {fileID: 11400000, guid: c361da6ca1b5b9b4bb29758089bcfe2d, type: 2}
