@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     public Transform targetPlayer;     // 따라갈 타겟(플레이어)
-    public Vector3 offset = new Vector3(0f, 5f, -7f);
+    public Vector3 offset;
 
     // SmoothDamp 관련 파라미터
     // smoothTime: 목표 위치에 도달하는 데 걸리는 대략적인 시간 (너무 작으면 민감하게 흔들림)
