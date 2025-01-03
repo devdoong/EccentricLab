@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
@@ -14,18 +15,17 @@ public class PlayerController : MonoBehaviour
 
     #region 화살 발사에 필요한 변수
     private GameObject arrowPrefab;
-    private Transform ShootPoint;
-    private Animator shoot_animator;
-    private AnimatorStateInfo currentState;
+    private Transform shootPoint;
     #endregion
-    private void Awake()
-    {
-        shoot_animator = GetComponent<Animator>();
-    }
 
-    private void test()
+    private void Start()
     {
-        
+        arrowPrefab = Resources.Load<GameObject>("4.Prefabs/Projectiles/Arrow");
+        if (arrowPrefab == null) Debug.Log("Arrow 프리팹 Missing");
+
+
+        shootPoint = transform.Find("ArrowShootPoint");
+        if (shootPoint == null) Debug.Log("shootPoint Missing!!!");
     }
 
     void Update()

@@ -31,13 +31,15 @@ public class EnemyController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //Player 태그를 가진 오브젝트가 트리거에 들어왔을 때만 비활성화
-        if (other.CompareTag("Player"))
+        //Projectile 태그를 가진 오브젝트가 트리거에 들어왔을 때만 비활성화
+        if (other.CompareTag("Projectile"))
         {
             // 이 스크립트가 붙은 게임오브젝트를 비활성화
             gameObject.SetActive(false);
         }
     }
+
+   
 }
 
 
