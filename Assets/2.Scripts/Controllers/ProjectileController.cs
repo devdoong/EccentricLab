@@ -10,7 +10,6 @@ public class ProjectileController : MonoBehaviour
     static GameObject arrowPrefab;
     private Transform shootPoint;
     static GameObject arrowClone;
-    private float arrowSpeed = 20.0f;
 
     private void Start()
     {
@@ -30,12 +29,8 @@ public class ProjectileController : MonoBehaviour
             arrowPrefab = handle.Result; // 프리팹 인스턴스화
             Debug.Log("프리팹 로드 성공: " + arrowPrefab.name);
         }
-        else
-        {
-            Debug.LogError("프리팹 로드 실패: " + handle.OperationException);
-        }
+        
     }
-
 
     public void Shoot()
     {

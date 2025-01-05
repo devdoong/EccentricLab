@@ -1,40 +1,42 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceLocations;
+using UnityEngine.UIElements;
 
-public class PoolManager : MonoBehaviour
+public class PoolManager
 {
 
-    public static PoolManager Instance { get; private set; }
-
-    public GameObject[] prefabs;
-
+    #region 풀장을 만들 변수
+    GameObject[] prefabs; //프리팹 못가져옴.
     List<GameObject>[] pools;
+    #endregion
 
-    private void Awake()
+    GameObject pool;
+    //
+
+    public void Init()
     {
-
-        // 싱글턴 할당
-        if (Instance == null)
-            Instance = this;
-        else
-        {
-            Destroy(gameObject);
-            return; // 아래 코드 실행 막기
-        }
-
+        #region 풀장 생성
+        prefabs = new GameObject[1];
+        prefabs[0]= Managers.Enemy;//임시
         pools = new List<GameObject>[prefabs.Length]; //몇개의 풀장이 필요한가. -> 등록된 프리팹 만큼
         for (int i = 0; i < pools.Length; i++)  //풀장 만들어주는 작업.
             pools[i] = new List<GameObject>();
+        #endregion
+
+        pool = GameObject.Find("@Pool");
+
+
     }
 
     public GameObject Active(int index)
     {
-       
         GameObject select = null;
 
         foreach (GameObject go in pools[index]) //활성화 하고자 하는게 풀에 있는가 순회
@@ -49,9 +51,17 @@ public class PoolManager : MonoBehaviour
 
         if (select == null) //위에 foreach에서 풀 순회 다 했는데도 null이면 (전부다 활성화 상태면)
         {
-            select = Instantiate(prefabs[index], transform); //Instantiate되는 객체를 내자신을 부모로 삼기위해 transform을 넣어줌.
+            select = Managers.Instance.InstantiatePrefab(prefabs[index], pool.transform) ; //몬스터 프리팹을 선택해서
+            pools[index].Add(select); //해당 몬스터의 풀에다가 넣어줌
+        }
+
+        /*
+         * if (select == null) 
+        {
+            select = Instantiate(prefabs[index], transform);
             pools[index].Add(select);
         }
+         */
 
         return select;
     }
