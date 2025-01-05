@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     #region 플레이어 이동에 필요한 변수
     public float moveSpeed = 5.0f;
     public float turnSpeed = 10.0f;
-    Vector3 m_Movement;
+    static public Vector3 m_Movement;
     #endregion
 
     #region 화살 발사에 필요한 변수

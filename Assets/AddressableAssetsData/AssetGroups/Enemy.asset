@@ -16,7 +16,13 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 5a0f26b7b54f3a64984c98af3a2caf0e
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 6063fd61a14382a4a959cabb97b40ea2
+    m_Address: 1_FishMan
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Enemy
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 64a4855b209731d489e39585180cc109, type: 2}
   m_SchemaSet:
