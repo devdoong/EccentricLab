@@ -5,10 +5,12 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
+
+
 public class PlayerController : MonoBehaviour
 {
     #region 플레이어 이동에 필요한 변수
-    public float moveSpeed = 5.0f;
+    public float moveSpeed = 5.0f; 
     public float turnSpeed = 10.0f;
     static public Vector3 m_Movement;
     #endregion
