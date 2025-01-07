@@ -17,23 +17,20 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 6d54425c887089d42ae42dcbbde575f3
   m_SerializeEntries:
-  - m_GUID: 4936b3bf9407e1d4da14dd96ec38f37d
+  - m_GUID: 311e4b139aa0c1b41b4a4c110f30a654
     m_Address: Green
     m_ReadOnly: 0
-    m_SerializedLabels:
-    - Gem
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 6005634ed90982a419031b0e6e8e0c67
-    m_Address: Orange
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Gem
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 76257ec371e32bd4eb6a2c3f73273914
+  - m_GUID: 8c3ea4943fc2672449aeabd5b17eada9
     m_Address: Blue
     m_ReadOnly: 0
-    m_SerializedLabels:
-    - Gem
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dfdeec98c118a7048bcc5cd72eeefc95
+    m_Address: Orange
+    m_ReadOnly: 0
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 64a4855b209731d489e39585180cc109, type: 2}

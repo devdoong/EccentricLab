@@ -16,6 +16,8 @@ public class Managers : MonoBehaviour
     #region Managers
     PoolManager _pool = new PoolManager();
     public static PoolManager Pool { get { return Instance?._pool; } }
+    LevelManager _level = new LevelManager();
+    public static LevelManager Level { get {  return Instance?._level; } }
     #endregion
 
     #region Controller
@@ -30,28 +32,28 @@ public class Managers : MonoBehaviour
     public static GameObject Enemy { get { return Instance?.enemy; } }
     #endregion
 
+    #region Managers 시작 작업
+    private void Awake()
+    {
+        if (s_instance != null && s_instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        s_instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
     public static Managers Instance
     {
         get
         {
-            if (s_initialized == false)//생성된적이 없으면
-            {
-                s_initialized = true;
-
-                GameObject go = GameObject.Find("@MainManager"); //메인매니저 찾아서
-                if (go == null) //@MainManager를 못찾았으면
-                {
-                    go = new GameObject() { name = "@MainManager" }; //만들어서 넣고
-                    go.AddComponent<Managers>(); //컴포넌트도 추가
-                }
-
-                DontDestroyOnLoad(go); //씬이동할때 파괴 안되도록 해줌
-                s_instance = go.GetComponent<Managers>(); //Managers.cs 담아줌
-            }
-
-            return s_instance; //Managers 리턴
+            return s_instance;
         }
     }
+    #endregion
+
+
 
     private void Start()
     {

@@ -15,7 +15,7 @@ public class PoolingController : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if (timer > 0.7f)
+        if (timer > 3.0f)
         {
             timer = 0;
             Spawn();

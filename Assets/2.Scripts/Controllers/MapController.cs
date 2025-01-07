@@ -23,8 +23,6 @@ public class MapController : MonoBehaviour
 
     void Start()
     {
-        
-
         // 모든 자식 오브젝트를 maps 배열에 저장
         for (int i = 1; i <= 9; i++)
         {
@@ -35,10 +33,6 @@ public class MapController : MonoBehaviour
             {
                 maps[i - 1] = childTransform.gameObject;
                 Debug.Log($"맵 {childName}을(를) maps[{i - 1}]에 할당했습니다.");
-            }
-            else
-            {
-                Debug.LogWarning($"자식 오브젝트 '{childName}'을(를) 찾을 수 없습니다.");
             }
         }
     }

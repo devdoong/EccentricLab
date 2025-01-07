@@ -16,17 +16,20 @@ public class EnemyController : MonoBehaviour
     private bool isKnockBack = false;
     public float knockBackDuration = 0.2f; // 넉백 지속 시간
     public float knockBackTimer = 0f; // 넉백 타이머
-    static Rigidbody rigidbody;
+    static Rigidbody enemt_rigidbody;
     Color originalColor;
     #endregion
 
     public GameObject gem;
-    public Transform gemParent;
+
+    private GameObject gemParent;
 
     private void Start()
     {
         player = GameObject.Find("BasicArcher").transform;
-        rigidbody = GetComponent<Rigidbody>();
+        enemt_rigidbody = GetComponent<Rigidbody>();
+        gemParent = GameObject.Find("@Gems");
+        if (gemParent == null) Debug.LogWarning("@Gems를 하이러키창에서 찾을 수 없습니다.");
     }
     private void Update()
     {
@@ -52,6 +55,7 @@ public class EnemyController : MonoBehaviour
         //전진하다가 데미지를 입어 넉백 타이머 시작 //위에 if문(플레이어에게 전진) 이 정지되어야 순수히 뒤로 넉백이 이루어질것임
         else if (isKnockBack == true){
             knockBackTimer += Time.deltaTime; //넉백 타이머
+            transform.position = Vector3.MoveTowards(transform.position, transform.Find("KnockBackPosition").position, 3 * Time.deltaTime);
             if (knockBackTimer >= knockBackDuration) //넉백 지속시간 충족했으면
             {
                 knockBackTimer = 0;
@@ -75,12 +79,13 @@ public class EnemyController : MonoBehaviour
 
             #region 체력감소, 넉백
             //1. Managers.Projectile에서 데미지를 가져와 데미지 입히고
-            HP -= Managers.Projectile.ArrowDamage;
+            HP -= Managers.Projectile.arrowDamage;
 
             //2. 넉백줌과 동시에 체력이 0인지 확인.  --> 넉백 발생할때 전진 일시정지.
             //넉백
             isKnockBack = true;
-            rigidbody.AddForce(new Vector3(0, 0, -10), ForceMode.Impulse); //뒤쪽으로 addForce //false는 update문에서 타이머 동작할것임.
+            //enemt_rigidbody.AddForce(knockBackDirection * 100f, ForceMode.Impulse);
+            //enemt_rigidbody.AddForce(new Vector3(0, 0, -100), ForceMode.Impulse); //뒤쪽으로 addForce //false는 update문에서 타이머 동작할것임.
 
             #endregion
 
@@ -88,7 +93,7 @@ public class EnemyController : MonoBehaviour
             if (HP <= 0)
             {
                 //3. 0이면 비활성화 +체력을 MAXHP로 리셋
-                Instantiate(gem,transform.position, Quaternion.identity,gemParent);
+                GameObject instance_gem= Instantiate(gem, transform.position, Quaternion.identity, gemParent.transform);
                 gameObject.SetActive(false);
                 HP = MaxHP;
             }
