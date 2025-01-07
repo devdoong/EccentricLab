@@ -11,6 +11,10 @@ public class ProjectileController : MonoBehaviour
     private Transform shootPoint;
     static GameObject arrowClone;
 
+    [SerializeField]
+    private int arrowDamage = 60;
+    public int ArrowDamage { get { return arrowDamage; } }
+
     private void Start()
     {
         LoadPrefab(prefabAddress);
