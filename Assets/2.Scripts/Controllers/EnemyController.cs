@@ -10,14 +10,18 @@ public class EnemyController : MonoBehaviour
     public float turnSpeed = 20.0f;
     public float backAmount = 1.0f;
 
+    #region 피격관련
     public int HP = 100;
     public int MaxHP = 100;
     private bool isKnockBack = false;
     public float knockBackDuration = 0.2f; // 넉백 지속 시간
     public float knockBackTimer = 0f; // 넉백 타이머
     static Rigidbody rigidbody;
-
     Color originalColor;
+    #endregion
+
+    public GameObject gem;
+    public Transform gemParent;
 
     private void Start()
     {
@@ -60,6 +64,7 @@ public class EnemyController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        #region projectile로 부터 데미지 입었을 때
         //Projectile 태그를 가진 오브젝트가 트리거에 들어왔을 때만 비활성화
         if (other.CompareTag("Projectile"))
         {
@@ -68,22 +73,28 @@ public class EnemyController : MonoBehaviour
             //2. 넉백줌과 동시에 체력이 0인지 확인.  --> 넉백 발생할때 전진 일시정지.
             //3. 0이면 비활성화 + 체력을 MAXHP로 리셋
 
+            #region 체력감소, 넉백
             //1. Managers.Projectile에서 데미지를 가져와 데미지 입히고
             HP -= Managers.Projectile.ArrowDamage;
 
             //2. 넉백줌과 동시에 체력이 0인지 확인.  --> 넉백 발생할때 전진 일시정지.
             //넉백
             isKnockBack = true;
-            rigidbody.AddForce(new Vector3(0, 0, -10), ForceMode.Impulse); //뒤쪽으로 addForce
-            //false는 update문에서 타이머 동작할것임.
+            rigidbody.AddForce(new Vector3(0, 0, -10), ForceMode.Impulse); //뒤쪽으로 addForce //false는 update문에서 타이머 동작할것임.
 
+            #endregion
+
+            #region 사망처리 (비활성화, 잼드랍)
             if (HP <= 0)
             {
                 //3. 0이면 비활성화 +체력을 MAXHP로 리셋
+                Instantiate(gem,transform.position, Quaternion.identity,gemParent);
                 gameObject.SetActive(false);
                 HP = MaxHP;
             }
+            #endregion
         }
+        #endregion
     }
 
 }

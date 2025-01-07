@@ -112,6 +112,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   turnSpeed: 20
+  backAmount: 1
+  HP: 100
+  MaxHP: 100
+  knockBackDuration: 0.2
+  knockBackTimer: 0
+  gem: {fileID: 136748, guid: 4936b3bf9407e1d4da14dd96ec38f37d, type: 3}
+  gemParent: {fileID: 6829868139380264825, guid: 3b7ab9f08a36e364086746b993ee5120, type: 3}
 --- !u!54 &3096500769018620592
 Rigidbody:
   m_ObjectHideFlags: 0

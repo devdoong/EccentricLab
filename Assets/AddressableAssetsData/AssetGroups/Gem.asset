@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Gem
+  m_EditorClassIdentifier: 
+  m_GroupName: Gem
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 6d54425c887089d42ae42dcbbde575f3
+  m_SerializeEntries:
+  - m_GUID: 4936b3bf9407e1d4da14dd96ec38f37d
+    m_Address: Green
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Gem
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6005634ed90982a419031b0e6e8e0c67
+    m_Address: Orange
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Gem
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 76257ec371e32bd4eb6a2c3f73273914
+    m_Address: Blue
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Gem
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 64a4855b209731d489e39585180cc109, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 20dfa4ae27be45a4fbaa03553ea30d27, type: 2}
+    - {fileID: 11400000, guid: def029bd70c610e4d8bf415fe7e620f7, type: 2}
