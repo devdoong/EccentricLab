@@ -17,8 +17,7 @@ public class PoolManager
     List<GameObject>[] pools;
     #endregion
 
-    GameObject pool;
-    //
+    GameObject pool; //하이러키 상에서 풀장 역할을 해줄 부모
 
     public void Init()
     {
@@ -55,13 +54,6 @@ public class PoolManager
             pools[index].Add(select); //해당 몬스터의 풀에다가 넣어줌
         }
 
-        /*
-         * if (select == null) 
-        {
-            select = Instantiate(prefabs[index], transform);
-            pools[index].Add(select);
-        }
-         */
 
         return select;
     }

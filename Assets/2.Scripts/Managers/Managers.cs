@@ -11,13 +11,21 @@ public class Managers : MonoBehaviour
     static bool s_initialized = false;
 
     //임시
-    public Transform player;
-    public GameObject enemy;
+    
 
+    #region Managers
     PoolManager _pool = new PoolManager();
     public static PoolManager Pool { get { return Instance?._pool; } }
+    #endregion
+
+    #region Controller
+    ProjectileController _projectile = new ProjectileController();
+    public static ProjectileController Projectile { get { return Instance?._projectile; } }
+    #endregion
 
     #region 임시
+    public Transform player;
+    public GameObject enemy;
     public static Transform Player { get { return Instance?.player; } }
     public static GameObject Enemy { get { return Instance?.enemy; } }
     #endregion
