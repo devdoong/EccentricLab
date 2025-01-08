@@ -5,6 +5,9 @@ using static UnityEngine.GraphicsBuffer;
 
 public class Gem : MonoBehaviour
 {
+    //해당 잼이 플레이어에게 주는 경험치양
+    public float xpAmount;
+
     private SphereCollider gemcollider;
     private Rigidbody gem_rigidbody;
     private bool getting = false;
@@ -50,6 +53,7 @@ public class Gem : MonoBehaviour
 
             if (transform.position == Player.transform.position)
             {
+                Managers.Level.getExp(xpAmount);
                 Destroy(gameObject);
             }
         }
