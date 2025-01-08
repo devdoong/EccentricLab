@@ -4,23 +4,23 @@ using UnityEngine;
 
 public class HPManager
 {
-    private int _HP=100; public int HP => _HP;
-    private int _MaxHP=100; public int MaxHP => _MaxHP;
-    private int _hpIncrease = 50; public int HPIncrease => _hpIncrease;
+    private float _HP =100; public float HP => _HP;
+    private float _MaxHP =100; public float MaxHP => _MaxHP;
+    private float _hpIncrease = 50; public float HPIncrease => _hpIncrease;
 
-    public int OnDamaged(int damage)
+    public float OnDamaged(float damage)
     {
         this._HP -= damage;
         return this._HP;
     }
 
-    public int Heal()
+    public float Heal()
     {
         _HP = _MaxHP;
         return this._HP;
     }
 
-    public int MaxUP()
+    public float MaxUP()
     {
         _MaxHP += _hpIncrease;
         return this._HP;

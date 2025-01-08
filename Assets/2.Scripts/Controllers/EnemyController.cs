@@ -10,28 +10,36 @@ public class EnemyController : MonoBehaviour
     public float moveSpeed = 3.0f; //이동 속도
     public float turnSpeed = 20.0f; //rotation하여 돌아보는 속도
     public float backAmount = 1.0f; //넉백되는 시간
-
     #endregion
 
     #region 가까이오면 멈추기 용도의 변수
-    public bool isPlayerCollision = false; //플레이어와 충돌 상태
+    public bool isCollision = false; //플레이어와 충돌 상태
     public float distance; //플레이어와의 거리차이를 구하여 바로 앞까지 왔다면 이동을 멈추기 위해서.
     public float stop_distance = 0.86f;
     #endregion
 
-    #region 피격관련
+    #region 몬스터 체력
     public int HP = 100;
     public int MaxHP = 100;
+    #endregion
+
+    #region 넉백을 위한 변수
     private bool isKnockBack = false;
     public float knockBackDuration = 0.2f; // 넉백 지속 시간
     public float knockBackTimer = 0f; // 넉백 타이머
     static Rigidbody enemt_rigidbody;
-    Color originalColor;
+    Color originalColor; //사용안함
     #endregion
 
     #region 경험치 드랍에 필요한 변수
     public GameObject gem;
     private GameObject gemParent;
+    #endregion
+
+    #region 데미지를 주기 위한 변수
+    public float damage = 1;
+    public float damage_Timer = 0f;
+    public float damage_delayTime = 0.3f;
     #endregion
 
     private void Start()
@@ -58,14 +66,16 @@ public class EnemyController : MonoBehaviour
             turnSpeed * Time.deltaTime
         );
         #endregion
-
+        
+        #region 플레이어와의 충돌 판단
         distance = Vector3.Distance(player.position,transform.position);
-        Debug.Log(distance);
+        if (distance <= stop_distance) isCollision = true;
+        else if (distance > stop_distance) isCollision = false;
+        #endregion
 
-
-        #region 플레이어에게 전진
+        #region 플레이어에게 전진 : 피격입은상태도 아니고 / 플레이어와 충돌 상태도 아니면
         //순조롭게 전진
-        if (isKnockBack == false && distance > stop_distance)
+        if (isKnockBack == false && isCollision == false) 
             transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime); //전진
         #endregion
 
@@ -80,6 +90,20 @@ public class EnemyController : MonoBehaviour
                 isKnockBack = false; //넉백상태 아님으로 돌림
             }
 
+        }
+        #endregion
+
+        #region 플레이어에게 데미지 입힘
+        if(isCollision == true)
+        {
+            damage_Timer += Time.deltaTime;
+
+            if (damage_Timer >= damage_delayTime)
+            {
+                damage_Timer = 0;
+                Debug.Log(Managers.HP.OnDamaged(damage));
+            }
+            
         }
         #endregion
     }

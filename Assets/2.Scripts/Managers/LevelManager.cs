@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class LevelManager
 {
-    private int level = 1; public int Level => level;
-    private int exp = 100; public int EXP => exp;
-    private int myexp = 0; public int MyExp => myexp;
-    private int expIncrease = 30; public int ExpIncrease => expIncrease;
-    private int maxlevel = 30; public int MaxLevel => maxlevel;
+    private float level = 1; public float Level => level;
+    private float exp = 100; public float EXP => exp;
+    private float myexp = 0; public float MyExp => myexp;
+    private float expIncrease = 30; public float ExpIncrease => expIncrease;
+    private float maxlevel = 30; public float MaxLevel => maxlevel;
     // Start is called before the first frame update
     void Start()
     {
