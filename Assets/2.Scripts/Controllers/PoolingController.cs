@@ -19,8 +19,9 @@ public class PoolingController : MonoBehaviour
         {
             timer = 0;
             Spawn();
-
         }
+
+        transform.position = Managers.Player.transform.position;
     }
 
     private void Awake()

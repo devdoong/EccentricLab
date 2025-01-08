@@ -17,7 +17,9 @@ public class Managers : MonoBehaviour
     PoolManager _pool = new PoolManager();
     public static PoolManager Pool { get { return Instance?._pool; } }
     LevelManager _level = new LevelManager();
-    public static LevelManager Level { get {  return Instance?._level; } }
+    public static LevelManager Level { get { return Instance?._level; } }
+    HPManager _hp = new HPManager();
+    public static HPManager HP { get { return Instance?._hp; } }
     #endregion
 
     #region Controller
