@@ -60,7 +60,6 @@ public class Gem : MonoBehaviour
         if (collision.gameObject.CompareTag("Player") && getting == false)
         {
             getting = true;
-            Debug.Log("플레이어 충돌 발생");
             Transform player_transform = collision.transform;
 
             Vector3 opDirection = -player_transform.position; //보석이 반대방향으로 밀리도록

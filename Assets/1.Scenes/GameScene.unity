@@ -307,6 +307,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8320671750218609571, guid: 311b1c5c62c12f04991421233ec063ef, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1272981360635040034, guid: 311b1c5c62c12f04991421233ec063ef, type: 3}
       propertyPath: m_Name
       value: BasicArcher

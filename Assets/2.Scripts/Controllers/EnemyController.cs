@@ -5,10 +5,19 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    static Transform player;
-    public float moveSpeed = 3.0f;
-    public float turnSpeed = 20.0f;
-    public float backAmount = 1.0f;
+    #region 기본변수
+    static Transform player; //플레이어 transform
+    public float moveSpeed = 3.0f; //이동 속도
+    public float turnSpeed = 20.0f; //rotation하여 돌아보는 속도
+    public float backAmount = 1.0f; //넉백되는 시간
+
+    #endregion
+
+    #region 가까이오면 멈추기 용도의 변수
+    public bool isPlayerCollision = false; //플레이어와 충돌 상태
+    public float distance; //플레이어와의 거리차이를 구하여 바로 앞까지 왔다면 이동을 멈추기 위해서.
+    public float stop_distance = 0.86f;
+    #endregion
 
     #region 피격관련
     public int HP = 100;
@@ -20,9 +29,10 @@ public class EnemyController : MonoBehaviour
     Color originalColor;
     #endregion
 
+    #region 경험치 드랍에 필요한 변수
     public GameObject gem;
-
     private GameObject gemParent;
+    #endregion
 
     private void Start()
     {
@@ -33,10 +43,13 @@ public class EnemyController : MonoBehaviour
     }
     private void Update()
     {
+        #region 플레이어의 방향 계산
         // 플레이어와의 방향 벡터 계산 (y축 회전만 고려하려고 y=0 처리)
         Vector3 direction = player.position - transform.position;
         direction.y = 0f; // 수직 방향은 무시하고 회전
+        #endregion
 
+        #region 플레이어에게 rotation
         // 몬스터가 플레이어를 바라보도록 회전
         Quaternion targetRotation = Quaternion.LookRotation(direction, Vector3.up);
         transform.rotation = Quaternion.Lerp(
@@ -44,10 +57,15 @@ public class EnemyController : MonoBehaviour
             targetRotation,
             turnSpeed * Time.deltaTime
         );
+        #endregion
+
+        distance = Vector3.Distance(player.position,transform.position);
+        Debug.Log(distance);
+
 
         #region 플레이어에게 전진
         //순조롭게 전진
-        if (isKnockBack == false) 
+        if (isKnockBack == false && distance > stop_distance)
             transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime); //전진
         #endregion
 
