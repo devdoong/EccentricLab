@@ -20,6 +20,8 @@ public class Managers : MonoBehaviour
     public static LevelManager Level { get { return Instance?._level; } }
     HPManager _hp = new HPManager();
     public static HPManager HP { get { return Instance?._hp; } }
+    DamageManager _damage = new DamageManager();   
+    public static DamageManager Damage { get { return Instance?._damage; } }
     #endregion
 
     #region Controller
@@ -60,6 +62,7 @@ public class Managers : MonoBehaviour
     private void Start()
     {
         _pool.Init();
+        _damage.Init();
     }
 
     public GameObject InstantiatePrefab(GameObject prefab,Transform transform)

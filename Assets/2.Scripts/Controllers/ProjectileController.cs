@@ -11,7 +11,7 @@ public class ProjectileController : MonoBehaviour
     private Transform shootPoint;
     static GameObject arrowClone;
 
-    public int arrowDamage = 60;
+    public float arrowDamage = 60;
 
     private void Start()
     {

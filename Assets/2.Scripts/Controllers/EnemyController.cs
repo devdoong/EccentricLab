@@ -19,8 +19,8 @@ public class EnemyController : MonoBehaviour
     #endregion
 
     #region 몬스터 체력
-    public int HP = 100;
-    public int MaxHP = 100;
+    public float HP = 100;
+    public float MaxHP = 100;
     #endregion
 
     #region 넉백을 위한 변수
@@ -112,23 +112,11 @@ public class EnemyController : MonoBehaviour
     {
         #region projectile로 부터 데미지 입었을 때
         //Projectile 태그를 가진 오브젝트가 트리거에 들어왔을 때만 비활성화
-        if (other.CompareTag("Projectile"))
+        if (other.CompareTag("DamageSource"))
         {
-            //구상
-            //1. Managers.Projectile에서 데미지를 가져와 데미지 입히고
-            //2. 넉백줌과 동시에 체력이 0인지 확인.  --> 넉백 발생할때 전진 일시정지.
-            //3. 0이면 비활성화 + 체력을 MAXHP로 리셋
-
             #region 체력감소, 넉백
-            //1. Managers.Projectile에서 데미지를 가져와 데미지 입히고
-            HP -= Managers.Projectile.arrowDamage;
-
-            //2. 넉백줌과 동시에 체력이 0인지 확인.  --> 넉백 발생할때 전진 일시정지.
-            //넉백
-            isKnockBack = true;
-            //enemt_rigidbody.AddForce(knockBackDirection * 100f, ForceMode.Impulse);
-            //enemt_rigidbody.AddForce(new Vector3(0, 0, -100), ForceMode.Impulse); //뒤쪽으로 addForce //false는 update문에서 타이머 동작할것임.
-
+            HP -= Managers.Damage.GetDamage((other.transform.parent != null) ? other.transform.parent.name : other.transform.name);
+            isKnockBack = true;//넉백
             #endregion
 
             #region 사망처리 (비활성화, 잼드랍)
