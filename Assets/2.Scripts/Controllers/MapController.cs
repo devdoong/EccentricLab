@@ -32,7 +32,6 @@ public class MapController : MonoBehaviour
             if (childTransform != null)
             {
                 maps[i - 1] = childTransform.gameObject;
-                Debug.Log($"맵 {childName}을(를) maps[{i - 1}]에 할당했습니다.");
             }
         }
     }
@@ -43,7 +42,6 @@ public class MapController : MonoBehaviour
 
         // 중심 맵을 현재 오브젝트로 설정
         center = caller.gameObject;
-        Debug.Log("현재센터"+center.name);
 
         // 중심 맵의 현재 위치 저장
         Vector3 centerPosition = center.transform.position;

@@ -29,7 +29,6 @@ public class ProjectileController : MonoBehaviour
         if (handle.Status == AsyncOperationStatus.Succeeded)
         {
             arrowPrefab = handle.Result; // 프리팹 인스턴스화
-            Debug.Log("프리팹 로드 성공: " + arrowPrefab.name);
         }
         
     }

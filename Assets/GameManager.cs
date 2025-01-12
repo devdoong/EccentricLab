@@ -51,11 +51,11 @@ public class GameManager : MonoBehaviour
 
         posWall_Bottom_Left.x = 0f;
         posWall_Bottom_Left.y = 0f;
-        posWall_Bottom_Left.z = Camera.main.nearClipPlane + 20f;
+        posWall_Bottom_Left.z = Camera.main.nearClipPlane + 30f;
 
         posWall_Top_Right.x = 1f;
         posWall_Top_Right.y = 1f;
-        posWall_Top_Right.z = Camera.main.nearClipPlane + 20f; 
+        posWall_Top_Right.z = Camera.main.nearClipPlane + 30f; 
 
         walls[0].transform.position = Camera.main.ViewportToWorldPoint(posWall_Bottom_Left);
         walls[1].transform.position = Camera.main.ViewportToWorldPoint(posWall_Top_Right);

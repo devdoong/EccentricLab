@@ -16,8 +16,6 @@ public class DamageManager
     public float GetDamage(string name)
     {
         name = name.Replace("(Clone)", "");
-        Debug.Log(name);
-        Debug.Log(name + "이 데미지를 입혔습니다 ==> " + dic_Damage[name]);
         return dic_Damage[name];
     }
 }

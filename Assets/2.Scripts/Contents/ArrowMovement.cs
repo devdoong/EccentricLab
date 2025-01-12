@@ -9,8 +9,6 @@ public class ArrowMovement : MonoBehaviour
     //레벨링을 통해 증가하는 값을 가지고 있다면 "@@@" 표시
     //고정은 //고정
 
-
-
     private float arrowSpeed = 20.0f; //@@@
     public float destroyDelay = 10f; //@@@
 
