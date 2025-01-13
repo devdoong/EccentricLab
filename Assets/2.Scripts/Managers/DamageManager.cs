@@ -11,6 +11,7 @@ public class DamageManager
     {
         dic_Damage["Arrow"] = 60;
         dic_Damage["RotationalSolid"] = 30;
+        dic_Damage["Hawk"] = 30;
     }
 
     public float GetDamage(string name)

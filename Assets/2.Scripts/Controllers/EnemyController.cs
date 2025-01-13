@@ -110,7 +110,7 @@ public class EnemyController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        #region projectile로 부터 데미지 입었을 때
+        #region 데미지 입었을 때
         //Projectile 태그를 가진 오브젝트가 트리거에 들어왔을 때만 비활성화
         if (other.CompareTag("DamageSource"))
         {
