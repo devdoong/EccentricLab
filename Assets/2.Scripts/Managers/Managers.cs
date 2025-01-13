@@ -10,7 +10,7 @@ public class Managers : MonoBehaviour
     static Managers s_instance;
     static bool s_initialized = false;
 
-    //임시
+    public static GameObject closeEnemy;
     
 
     #region Managers
@@ -25,6 +25,8 @@ public class Managers : MonoBehaviour
     #endregion
 
     #region Controller
+    PlayerController _playerController = new PlayerController();
+    public static PlayerController PlayerController { get { return Instance?._playerController; } }
     ProjectileController _projectile = new ProjectileController();
     public static ProjectileController Projectile { get { return Instance?._projectile; } }
     #endregion
@@ -69,5 +71,32 @@ public class Managers : MonoBehaviour
     {
         return Instantiate(prefab, transform);
     }
+
+    public void Update()
+    {
+        closeEnemy = GetCloseEnemy();
+    }
+
+    #region 타겟 Enemy 서칭
+    public GameObject GetCloseEnemy()
+    {
+        GameObject[] enemys = GameObject.FindGameObjectsWithTag("Enemy"); //Enemy 태그 전체 검사
+
+        if (enemys.Length == 0) return null;
+
+        GameObject closest = null;
+        float closestDistance = Mathf.Infinity;
+        foreach (GameObject enemy in enemys)
+        {
+            float distance = Vector3.Distance(player.transform.position, enemy.transform.position);
+            if (distance < closestDistance)
+            {
+                closest = enemy;
+                closestDistance = distance;
+            }
+        }
+        return closest;
+    }
+    #endregion
 
 }

@@ -20,15 +20,14 @@ public class PlayerController : MonoBehaviour
     private Transform shootPoint;
     #endregion
 
-    private void Start()
-    {
-        arrowPrefab = Resources.Load<GameObject>("4.Prefabs/Projectiles/Arrow");
-        if (arrowPrefab == null) Debug.Log("Arrow 프리팹 Missing");
+    public GameObject closeEnemy;
 
+/*    private void Start()
+    {
 
         shootPoint = transform.Find("ArrowShootPoint");
         if (shootPoint == null) Debug.Log("shootPoint Missing!!!");
-    }
+    }*/
 
     void Update()
     {
@@ -43,11 +42,11 @@ public class PlayerController : MonoBehaviour
         #endregion
 
         #region 적 바라보는 로직
-        GameObject closeEnemy = GetCloseEnemy();
+        closeEnemy = Managers.closeEnemy;
         if (closeEnemy != null)
         {
-            Vector3 dir = (closeEnemy.transform.position - transform.position).normalized;
-            Quaternion toRotation = Quaternion.LookRotation(dir, Vector3.up);
+            Vector3 dir = (closeEnemy.transform.position - transform.position).normalized; //바라봐야할 방향
+            Quaternion toRotation = Quaternion.LookRotation(dir, Vector3.up); //그 방향으로 돌리기 위한 쿼터니언.
             transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, turnSpeed * Time.deltaTime);
         }
         #endregion
@@ -55,26 +54,4 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    #region 타겟 Enemy 서칭
-    GameObject GetCloseEnemy()
-    {
-        GameObject[] enemys = GameObject.FindGameObjectsWithTag("Enemy"); //Enemy 태그 전체 검사
-
-        if (enemys.Length == 0) return null;
-
-        GameObject closest = null;
-        float closestDistance = Mathf.Infinity;
-
-        foreach (GameObject enemy in enemys)
-        {
-            float distance = Vector3.Distance(transform.position,enemy.transform.position);
-            if (distance < closestDistance)
-            {
-                closest = enemy;
-                closestDistance = distance;
-            }
-        }
-        return closest;
-    }
-    #endregion
 }
