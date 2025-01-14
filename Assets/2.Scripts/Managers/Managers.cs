@@ -22,6 +22,8 @@ public class Managers : MonoBehaviour
     public static HPManager HP { get { return Instance?._hp; } }
     DamageManager _damage = new DamageManager();   
     public static DamageManager Damage { get { return Instance?._damage; } }
+    SkillStateManager _skillState = new SkillStateManager();
+    public static SkillStateManager SkillState { get { return Instance?._skillState; } }
     #endregion
 
     #region Controller
@@ -29,6 +31,11 @@ public class Managers : MonoBehaviour
     public static PlayerController PlayerController { get { return Instance?._playerController; } }
     ProjectileController _projectile = new ProjectileController();
     public static ProjectileController Projectile { get { return Instance?._projectile; } }
+    #endregion
+
+    #region Datas
+    AbilityDatas _abilityDatas = new AbilityDatas();
+    public static AbilityDatas AbilityDatas{ get { return Instance?._abilityDatas; } }      
     #endregion
 
     #region юс╫ц
@@ -65,6 +72,8 @@ public class Managers : MonoBehaviour
     {
         _pool.Init();
         _damage.Init();
+        _abilityDatas.Init();
+        _skillState.Init();
     }
 
     public GameObject InstantiatePrefab(GameObject prefab,Transform transform)

@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public Vector3 posWall_Top_Right;
     #endregion
     
+    
 
     void Update()
     {

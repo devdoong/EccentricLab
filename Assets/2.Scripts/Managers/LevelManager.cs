@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class LevelManager
 {
@@ -10,16 +12,22 @@ public class LevelManager
     private float expIncrease = 30; public float ExpIncrease => expIncrease;
     private float maxlevel = 30; public float MaxLevel => maxlevel;
 
-    public void levelUp()
+
+    public bool levelUp()
     {
         if (level >= maxlevel)
         {
             maxLevel();
-            return;
+            return false;
         }
-        this.level++;
-        this.myExp = 0;
-        this.maxExp += this.expIncrease;
+        else if ( level < maxlevel )
+        {
+            this.level++;
+            this.myExp = 0;
+            this.maxExp += this.expIncrease;
+            return true;
+        }
+        else return false;
     }
     public void getExp(float exp_amount)
     {

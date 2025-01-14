@@ -15,7 +15,6 @@ public class Hawk : MonoBehaviour
     {
         if (collision.transform.CompareTag("Wall"))
         {
-            Debug.Log("충돌인식성공");
 
             // 가까운 적 오브젝트 가져오기
             GameObject closeEnemy = Managers.closeEnemy;
@@ -25,12 +24,10 @@ public class Hawk : MonoBehaviour
             if (closeEnemy != null) // 가까운 적이 존재할 경우
             {
                 targetDirection = (closeEnemy.transform.position - transform.position).normalized;
-                Debug.Log("가까운 적을 향한 방향으로 설정: " + targetDirection);
             }
             else // 가까운 적이 없을 경우 플레이어 방향으로 설정
             {
                 targetDirection = (Managers.Player.transform.position - transform.position).normalized;
-                Debug.Log("가까운 적이 없어 플레이어를 향한 방향으로 설정: " + targetDirection);
             }
 
             // 목표 방향의 회전 값 계산
@@ -44,7 +41,6 @@ public class Hawk : MonoBehaviour
 
             // 새 회전 값 적용
             transform.rotation = Quaternion.Euler(newEuler);
-            Debug.Log("Y축 회전만 적용 완료: " + newEuler.y);
         }
     }
 

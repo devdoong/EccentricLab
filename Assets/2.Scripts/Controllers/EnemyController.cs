@@ -115,7 +115,7 @@ public class EnemyController : MonoBehaviour
         if (other.CompareTag("DamageSource"))
         {
             #region Ã¼·Â°¨¼Ò, ³Ë¹é
-            HP -= Managers.Damage.GetDamage((other.transform.parent != null) ? other.transform.parent.name : other.transform.name);
+            HP -= Managers.SkillState.GetDamage((other.transform.parent != null) ? other.transform.parent.name : other.transform.name);
             isKnockBack = true;//³Ë¹é
             #endregion
 
