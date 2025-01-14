@@ -6,14 +6,14 @@ using UnityEngine;
 public class SkillStateManager
 {
 
-    private readonly int MaxSkillLevel = 5;
-    private Dictionary<string,float> abilityState = new Dictionary<string,float>();
-    private Dictionary<string,int> abilityLevelState = new Dictionary<string, int>();
+    public readonly int MaxSkillLevel = 5;
+    public Dictionary<string,float> abilityState = new Dictionary<string,float>();
+    public Dictionary<string,int> abilityLevelState = new Dictionary<string, int>();
     public void Init()
     {
-        foreach (var skilldata in Managers.AbilityDatas.skillData)
+        foreach (var skilldata in Managers.AbilityDatas.dic_skillData)
         {
-            Debug.Log(skilldata);
+            //Debug.Log(skilldata);
             abilityState[skilldata.Key] = skilldata.Value.Damage;
             abilityLevelState[skilldata.Key] = 0;
         }
@@ -28,7 +28,7 @@ public class SkillStateManager
     public bool AbilitySelected_LevelUp(string name)
     {
         name = name.Replace("(Clone)", "");
-        abilityState[name] += Managers.AbilityDatas.skillData[name].DamagePerLevel;
+        abilityState[name] += Managers.AbilityDatas.dic_skillData[name].DamagePerLevel;
 
         if (abilityLevelState[name] < MaxSkillLevel)
         {

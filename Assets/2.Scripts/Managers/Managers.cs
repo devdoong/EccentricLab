@@ -33,6 +33,11 @@ public class Managers : MonoBehaviour
     public static ProjectileController Projectile { get { return Instance?._projectile; } }
     #endregion
 
+    #region Contents
+    RandomSkill _randomSkill = new RandomSkill();
+    public static RandomSkill RandomSkill { get {  return Instance?._randomSkill; } }
+    #endregion
+
     #region Datas
     AbilityDatas _abilityDatas = new AbilityDatas();
     public static AbilityDatas AbilityDatas{ get { return Instance?._abilityDatas; } }      
@@ -56,6 +61,11 @@ public class Managers : MonoBehaviour
 
         s_instance = this;
         DontDestroyOnLoad(gameObject);
+
+        _abilityDatas.Init();
+        _skillState.Init();
+        _pool.Init();
+        _damage.Init();
     }
     public static Managers Instance
     {
@@ -64,17 +74,13 @@ public class Managers : MonoBehaviour
             return s_instance;
         }
     }
+
+        
     #endregion
 
 
 
-    private void Start()
-    {
-        _pool.Init();
-        _damage.Init();
-        _abilityDatas.Init();
-        _skillState.Init();
-    }
+   
 
     public GameObject InstantiatePrefab(GameObject prefab,Transform transform)
     {

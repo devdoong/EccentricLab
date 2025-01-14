@@ -20,10 +20,10 @@ public class SkillData
 }
 public class AbilityDatas
 {
-    public Dictionary<string, SkillData> skillData = new Dictionary<string, SkillData>();
+    public Dictionary<string, SkillData> dic_skillData = new Dictionary<string, SkillData>();
     public void Init()
     {
-        skillData["HP"] =
+        dic_skillData["HP"] =
 
             new SkillData(
                 100,
@@ -32,7 +32,7 @@ public class AbilityDatas
                 "체력 증가"
                 );
 
-        skillData["Arrow"] = 
+        dic_skillData["Arrow"] = 
 
             new SkillData(
                 30, 
@@ -40,7 +40,7 @@ public class AbilityDatas
                 "적에게 화살을 발사합니다", 
                 "화살 데미지 증가");
 
-        skillData["RotationalSolid"] = 
+        dic_skillData["RotationalSolid"] = 
 
             new SkillData(
             15, 
@@ -48,7 +48,7 @@ public class AbilityDatas
             "주변을 회전하며 적을 공격하는 바람", 
             "회전 갯수 증가");
 
-        skillData["Hawk"] = 
+        dic_skillData["Hawk"] = 
 
             new SkillData(
                 20, 
