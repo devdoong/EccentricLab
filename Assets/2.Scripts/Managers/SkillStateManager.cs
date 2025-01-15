@@ -7,7 +7,7 @@ public class SkillStateManager
 {
 
     public readonly int MaxSkillLevel = 5;
-    public Dictionary<string,float> abilityState = new Dictionary<string,float>(); //Value : 현재 스킬 데미지
+    public Dictionary<string,float> abilityState = new Dictionary<string,float>(); //Value : 현재 스킬의 값.
     public Dictionary<string,int> abilityLevelState = new Dictionary<string, int>(); //Value : 현재 스킬 레벨
 
     public void Init() //
@@ -19,7 +19,7 @@ public class SkillStateManager
             abilityLevelState[skilldata.Key] = 0;
         }
     }
-    public float GetDamage(string name) //데미지 반환
+    public float GetState(string name) //데미지 반환
     {
         name = name.Replace("(Clone)", "");
         return abilityState[name]; //데미지 반환

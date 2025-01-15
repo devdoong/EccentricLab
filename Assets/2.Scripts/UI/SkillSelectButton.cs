@@ -42,6 +42,9 @@ public class SkillSelectButton : MonoBehaviour
     public void Click()
     {
         Managers.SkillState.abilityLevelState[random_skill_name]++;
+        GameObject levelUp = Managers.Instance.Find_GO("LevelUp");
+        Time.timeScale = 1f;
+        levelUp.SetActive(false);
     }
 
 }

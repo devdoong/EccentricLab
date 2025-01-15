@@ -5,7 +5,7 @@ using UnityEngine;
 public class RotationalSolid : MonoBehaviour
 {
     public int howmany_Solid = 3;
-    public Vector3 rotationSpeed = new Vector3(0, 100, 0);
+    public Vector3 rotationSpeed = new Vector3(0, 30, 0);
     void Update()
     {
         transform.position = Managers.Player.transform.position;

@@ -1,5 +1,6 @@
                                                                                                                                                 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.Serialization;
 using Unity.VisualScripting;
 using UnityEditor.EditorTools;
@@ -76,12 +77,28 @@ public class Managers : MonoBehaviour
         }
     }
 
-        
+
     #endregion
 
-
-
    
+
+
+
+
+    public GameObject Find_GO(string obj_name)
+    {
+        GameObject[] allObjects = Resources.FindObjectsOfTypeAll<GameObject>();
+        foreach (GameObject obj in allObjects)
+        {
+            if (obj.name.Equals(obj_name, System.StringComparison.OrdinalIgnoreCase))
+            {
+                return obj;
+            }
+        }
+        Debug.Log("Find_InactiveObject: 찾을 수 없음");
+        return null;
+    }
+
 
     public GameObject InstantiatePrefab(GameObject prefab,Transform transform)
     {

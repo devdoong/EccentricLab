@@ -21,14 +21,6 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     public GameObject closeEnemy;
-
-/*    private void Start()
-    {
-
-        shootPoint = transform.Find("ArrowShootPoint");
-        if (shootPoint == null) Debug.Log("shootPoint Missing!!!");
-    }*/
-
     void Update()
     {
 

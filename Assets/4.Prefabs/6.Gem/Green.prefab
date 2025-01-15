@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 919e039cd1971a341bf7a9d2bcc5af05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xpAmount: 3
+  xpAmount: 10
   speed: 20
   magnetRadius: 1.8
 --- !u!54 &-9000318144683552492

@@ -101,6 +101,7 @@ public class EnemyController : MonoBehaviour
             if (damage_Timer >= damage_delayTime)
             {
                 damage_Timer = 0;
+                Managers.HP.OnDamaged(damage);
             }
             
         }
@@ -110,11 +111,11 @@ public class EnemyController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         #region 데미지 입었을 때
-        //Projectile 태그를 가진 오브젝트가 트리거에 들어왔을 때만 비활성화
+        //데미지소스 태그를 가진 오브젝트가 트리거에 들어왔을 때만 비활성화
         if (other.CompareTag("DamageSource"))
         {
             #region 체력감소, 넉백
-            HP -= Managers.SkillState.GetDamage((other.transform.parent != null) ? other.transform.parent.name : other.transform.name);
+            HP -= Managers.SkillState.GetState((other.transform.parent != null) ? other.transform.parent.name : other.transform.name);
             isKnockBack = true;//넉백
             #endregion
 

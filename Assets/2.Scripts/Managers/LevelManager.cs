@@ -7,7 +7,7 @@ using UnityEngine.Events;
 public class LevelManager
 {
     private float level = 1; public float Level => level;
-    private float maxExp = 100; public float MaxExp => maxExp;
+    private float maxExp = 70; public float MaxExp => maxExp;
     private float myExp = 0; public float MyExp => myExp;
     private float expIncrease = 30; public float ExpIncrease => expIncrease;
     private float maxlevel = 30; public float MaxLevel => maxlevel;
@@ -15,16 +15,23 @@ public class LevelManager
 
     public bool levelUp()
     {
-        if (level >= maxlevel)
+        GameObject levelUp = Managers.Instance.Find_GO("LevelUp");
+        Time.timeScale = 0f;
+
+
+        //레벨(경험치)가 최대라면
+        if (level >= maxlevel) 
         {
             maxLevel();
             return false;
         }
+
         else if ( level < maxlevel )
         {
             this.level++;
             this.myExp = 0;
             this.maxExp += this.expIncrease;
+            levelUp.SetActive(true);
             return true;
         }
         else return false;
