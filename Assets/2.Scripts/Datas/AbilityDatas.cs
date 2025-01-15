@@ -5,15 +5,15 @@ using UnityEngine;
 
 public class SkillData
 {
-    public float Damage; //½ÃÀÛ ±âº» µ¥¹ÌÁö
-    public float DamagePerLevel; //·¹º§¾÷´ç µ¥¹ÌÁö »ó½Â·®
-    public string Description; //¼³¸í
+    public float Damage; //ì‹œì‘ ê¸°ë³¸ ë°ë¯¸ì§€
+    public float DamagePerLevel; //ë ˆë²¨ì—…ë‹¹ ë°ë¯¸ì§€ ìƒìŠ¹ëŸ‰
+    public string Description; //ì„¤ëª…
     public string LevelUpDescription;
     public Sprite icon_sprite;
 
 
     public SkillData(float damage, float damagePerLevel, string description, string levelUpDescription, Sprite icon)
-    { //½ÃÀÛ±âº»µ¥¹ÌÁö , ·¹º§¾÷´ç µ¥¹ÌÁö »ó½Â·® , ½ºÅ³¼³¸í, ·¹º§¾÷½Ã ½ºÅ³¼³¸í
+    { //ì‹œì‘ê¸°ë³¸ë°ë¯¸ì§€ , ë ˆë²¨ì—…ë‹¹ ë°ë¯¸ì§€ ìƒìŠ¹ëŸ‰ , ìŠ¤í‚¬ì„¤ëª…, ë ˆë²¨ì—…ì‹œ ìŠ¤í‚¬ì„¤ëª…
         Damage = damage;
         DamagePerLevel = damagePerLevel;
         Description = description;
@@ -40,7 +40,7 @@ public class AbilityDatas
                 100,
                 20,
                 "",
-                "Ã¼·Â Áõ°¡",
+                "ì²´ë ¥ ì¦ê°€",
                 Managers.Instance.sprites[0]
                 );
 
@@ -49,8 +49,8 @@ public class AbilityDatas
             new SkillData(
                 30, 
                 15, 
-                "Àû¿¡°Ô È­»ìÀ» ¹ß»çÇÕ´Ï´Ù", 
-                "È­»ì µ¥¹ÌÁö Áõ°¡",
+                "ì ì—ê²Œ í™”ì‚´ì„ ë°œì‚¬í•©ë‹ˆë‹¤", 
+                "í™”ì‚´ ë°ë¯¸ì§€ ì¦ê°€",
                 Managers.Instance.sprites[1]
 
                 );
@@ -60,8 +60,8 @@ public class AbilityDatas
             new SkillData(
             15, 
             7.5f, 
-            "ÁÖº¯À» È¸ÀüÇÏ¸ç ÀûÀ» °ø°İÇÏ´Â ¹Ù¶÷", 
-            "È¸Àü °¹¼ö Áõ°¡",
+            "ì£¼ë³€ì„ íšŒì „í•˜ë©° ì ì„ ê³µê²©í•˜ëŠ” ë°”ëŒ", 
+            "íšŒì „ ê°¯ìˆ˜ ì¦ê°€",
             Managers.Instance.sprites[2]
 
             );
@@ -71,8 +71,8 @@ public class AbilityDatas
             new SkillData(
                 20, 
                 10, 
-                "¸ÊÀ» µ¹¾Æ´Ù´Ï¸ç ÀûÀ» °ø°İÇÏ´Â ¸Å", 
-                "ÇÑ¸¶¸® ´õ Ãß°¡",
+                "ë§µì„ ëŒì•„ë‹¤ë‹ˆë©° ì ì„ ê³µê²©í•˜ëŠ” ë§¤", 
+                "í•œë§ˆë¦¬ ë” ì¶”ê°€",
                 Managers.Instance.sprites[3]
                 );
     }

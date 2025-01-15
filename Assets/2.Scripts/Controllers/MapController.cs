@@ -4,26 +4,26 @@ using UnityEngine;
 
 public class MapController : MonoBehaviour
 {
-    // ¹è¿­ Å©±â¸¦ 9·Î ¼³Á¤ (1ºÎÅÍ 9±îÁö)
+    // ë°°ì—´ í¬ê¸°ë¥¼ 9ë¡œ ì„¤ì • (1ë¶€í„° 9ê¹Œì§€)
     public static GameObject[] maps = new GameObject[9];
     private GameObject center;
 
-    // Áß½É ¸ÊÀ¸·ÎºÎÅÍÀÇ ¿ÀÇÁ¼Â (x, z)
+    // ì¤‘ì‹¬ ë§µìœ¼ë¡œë¶€í„°ì˜ ì˜¤í”„ì…‹ (x, z)
     private Vector3[] offsets = new Vector3[]
     {
-        new Vector3(-45f, 0f, 45f),  // ¿ŞÂÊ À§
-        new Vector3(0f, 0f, 45f),    // À§
-        new Vector3(45f, 0f, 45f),   // ¿À¸¥ÂÊ À§
-        new Vector3(-45f, 0f, 0f),   // ¿ŞÂÊ
-        new Vector3(45f, 0f, 0f),    // ¿À¸¥ÂÊ
-        new Vector3(-45f, 0f, -45f), // ¿ŞÂÊ ¾Æ·¡
-        new Vector3(0f, 0f, -45f),   // ¾Æ·¡
-        new Vector3(45f, 0f, -45f)   // ¿À¸¥ÂÊ ¾Æ·¡
+        new Vector3(-45f, 0f, 45f),  // ì™¼ìª½ ìœ„
+        new Vector3(0f, 0f, 45f),    // ìœ„
+        new Vector3(45f, 0f, 45f),   // ì˜¤ë¥¸ìª½ ìœ„
+        new Vector3(-45f, 0f, 0f),   // ì™¼ìª½
+        new Vector3(45f, 0f, 0f),    // ì˜¤ë¥¸ìª½
+        new Vector3(-45f, 0f, -45f), // ì™¼ìª½ ì•„ë˜
+        new Vector3(0f, 0f, -45f),   // ì•„ë˜
+        new Vector3(45f, 0f, -45f)   // ì˜¤ë¥¸ìª½ ì•„ë˜
     };
 
     void Start()
     {
-        // ¸ğµç ÀÚ½Ä ¿ÀºêÁ§Æ®¸¦ maps ¹è¿­¿¡ ÀúÀå
+        // ëª¨ë“  ìì‹ ì˜¤ë¸Œì íŠ¸ë¥¼ maps ë°°ì—´ì— ì €ì¥
         for (int i = 1; i <= 9; i++)
         {
             string childName = i.ToString();
@@ -40,13 +40,13 @@ public class MapController : MonoBehaviour
 
         if (!other.gameObject.CompareTag("Player")) return;
 
-        // Áß½É ¸ÊÀ» ÇöÀç ¿ÀºêÁ§Æ®·Î ¼³Á¤
+        // ì¤‘ì‹¬ ë§µì„ í˜„ì¬ ì˜¤ë¸Œì íŠ¸ë¡œ ì„¤ì •
         center = caller.gameObject;
 
-        // Áß½É ¸ÊÀÇ ÇöÀç À§Ä¡ ÀúÀå
+        // ì¤‘ì‹¬ ë§µì˜ í˜„ì¬ ìœ„ì¹˜ ì €ì¥
         Vector3 centerPosition = center.transform.position;
 
-        // ¿ÀÇÁ¼ÂÀ» Àû¿ëÇÏ±â À§ÇÑ ÀÎµ¦½º ÃÊ±âÈ­
+        // ì˜¤í”„ì…‹ì„ ì ìš©í•˜ê¸° ìœ„í•œ ì¸ë±ìŠ¤ ì´ˆê¸°í™”
         int offsetIndex = 0;
 
         foreach (GameObject map in maps)

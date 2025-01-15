@@ -5,7 +5,7 @@ using UnityEngine;
 public class PoolingController : MonoBehaviour
 {
 
-    #region ¸ó½ºÅÍ¸¦ ½ºÆ÷´× ÇÒ º¯¼ö
+    #region ëª¬ìŠ¤í„°ë¥¼ ìŠ¤í¬ë‹ í•  ë³€ìˆ˜
     public Transform[] spawnPoint;
     float timer;
     #endregion
@@ -26,13 +26,13 @@ public class PoolingController : MonoBehaviour
 
     private void Awake()
     {
-        spawnPoint = GetComponentsInChildren<Transform>(); //½ºÆùÁöÁ¡ ¸ğµÎ ºÒ·¯¿È
+        spawnPoint = GetComponentsInChildren<Transform>(); //ìŠ¤í°ì§€ì  ëª¨ë‘ ë¶ˆëŸ¬ì˜´
     }
 
 
     void Spawn()
     {
         GameObject enemy = Managers.Pool.Active(0);
-        enemy.transform.position = spawnPoint[Random.Range(1, spawnPoint.Length)].position; //ÀÚ±âÀÚ½Å 0Á¦¿ÜÇÏ°í 1ºÎÅÍ. ~ ½ºÆùÆ÷ÀÎÆ® ±æÀÌ¸¸Å­
+        enemy.transform.position = spawnPoint[Random.Range(1, spawnPoint.Length)].position; //ìê¸°ìì‹  0ì œì™¸í•˜ê³  1ë¶€í„°. ~ ìŠ¤í°í¬ì¸íŠ¸ ê¸¸ì´ë§Œí¼
     }
 }

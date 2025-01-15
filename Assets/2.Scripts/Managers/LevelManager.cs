@@ -19,7 +19,7 @@ public class LevelManager
         Time.timeScale = 0f;
 
 
-        //·¹º§(°æÇèÄ¡)°¡ ÃÖ´ë¶ó¸é
+        //ë ˆë²¨(ê²½í—˜ì¹˜)ê°€ ìµœëŒ€ë¼ë©´
         if (level >= maxlevel) 
         {
             maxLevel();

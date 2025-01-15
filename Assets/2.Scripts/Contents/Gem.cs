@@ -5,7 +5,7 @@ using static UnityEngine.GraphicsBuffer;
 
 public class Gem : MonoBehaviour
 {
-    //ÇØ´ç ÀëÀÌ ÇÃ·¹ÀÌ¾î¿¡°Ô ÁÖ´Â °æÇèÄ¡¾ç
+    //í•´ë‹¹ ì¼ì´ í”Œë ˆì´ì–´ì—ê²Œ ì£¼ëŠ” ê²½í—˜ì¹˜ì–‘
     public float xpAmount;
 
     private SphereCollider gemcollider;
@@ -32,13 +32,13 @@ public class Gem : MonoBehaviour
 
     private void Update()
     {
-        #region ³Ë¹éÀ» À§ÇØ ÇÃ·¹ÀÌ¾î¿¡°Ô ÀüÁøÀ» ÀÏ½ÃÁ¤ÁöÇÏ°í ³Ë¹éÀÌ ÀÌ·ç¾îÁú ½Ã°£ Ã¼Å©
+        #region ë„‰ë°±ì„ ìœ„í•´ í”Œë ˆì´ì–´ì—ê²Œ ì „ì§„ì„ ì¼ì‹œì •ì§€í•˜ê³  ë„‰ë°±ì´ ì´ë£¨ì–´ì§ˆ ì‹œê°„ ì²´í¬
         if (isMoveBack == true)
         {
-            moveback_timer += Time.deltaTime; //¹«ºê¹é Å¸ÀÌ¸Ó Áõ°¡
+            moveback_timer += Time.deltaTime; //ë¬´ë¸Œë°± íƒ€ì´ë¨¸ ì¦ê°€
             transform.position = Vector3.MoveTowards(transform.position, transform.position+(new Vector3(0,3,0)), 3 * Time.deltaTime);
 
-            if (moveback_timer >= 1.0f) //³Ë¹é Áö¼Ó½Ã°£ ÃæÁ·ÇßÀ¸¸é
+            if (moveback_timer >= 1.0f) //ë„‰ë°± ì§€ì†ì‹œê°„ ì¶©ì¡±í–ˆìœ¼ë©´
             {
                 isMoveBack = false;
                 moveback_timer = 0;
@@ -66,7 +66,7 @@ public class Gem : MonoBehaviour
             getting = true;
             Transform player_transform = collision.transform;
 
-            Vector3 opDirection = -player_transform.position; //º¸¼®ÀÌ ¹İ´ë¹æÇâÀ¸·Î ¹Ğ¸®µµ·Ï
+            Vector3 opDirection = -player_transform.position; //ë³´ì„ì´ ë°˜ëŒ€ë°©í–¥ìœ¼ë¡œ ë°€ë¦¬ë„ë¡
 
             isMoveBack = true;
             

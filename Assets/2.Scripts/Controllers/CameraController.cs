@@ -4,26 +4,26 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public Transform targetPlayer;     // µû¶ó°¥ Å¸°Ù(ÇÃ·¹ÀÌ¾î)
+    public Transform targetPlayer;     // ë”°ë¼ê°ˆ íƒ€ê²Ÿ(í”Œë ˆì´ì–´)
     public Vector3 offset;
 
-    // SmoothDamp °ü·Ã ÆÄ¶ó¹ÌÅÍ
-    // smoothTime: ¸ñÇ¥ À§Ä¡¿¡ µµ´ŞÇÏ´Â µ¥ °É¸®´Â ´ë·«ÀûÀÎ ½Ã°£ (³Ê¹« ÀÛÀ¸¸é ¹Î°¨ÇÏ°Ô Èçµé¸²)
-    // velocity: SmoothDamp¿¡¼­ ³»ºÎÀûÀ¸·Î »ç¿ëµÉ ÇöÀç ÀÌµ¿ ¼Óµµ(ÃÊ±âÈ­ 0)
+    // SmoothDamp ê´€ë ¨ íŒŒë¼ë¯¸í„°
+    // smoothTime: ëª©í‘œ ìœ„ì¹˜ì— ë„ë‹¬í•˜ëŠ” ë° ê±¸ë¦¬ëŠ” ëŒ€ëµì ì¸ ì‹œê°„ (ë„ˆë¬´ ì‘ìœ¼ë©´ ë¯¼ê°í•˜ê²Œ í”ë“¤ë¦¼)
+    // velocity: SmoothDampì—ì„œ ë‚´ë¶€ì ìœ¼ë¡œ ì‚¬ìš©ë  í˜„ì¬ ì´ë™ ì†ë„(ì´ˆê¸°í™” 0)
     public float smoothTime = 0.1f;
     private Vector3 velocity = Vector3.zero;
 
     private void LateUpdate()
     {
-        // Å¸°Ù À§Ä¡ + ¿ÀÇÁ¼ÂÀ¸·Î Ä«¸Ş¶ó°¡ ÀÌµ¿ÇØ¾ß ÇÒ À§Ä¡ °è»ê
+        // íƒ€ê²Ÿ ìœ„ì¹˜ + ì˜¤í”„ì…‹ìœ¼ë¡œ ì¹´ë©”ë¼ê°€ ì´ë™í•´ì•¼ í•  ìœ„ì¹˜ ê³„ì‚°
         Vector3 targetPosition = targetPlayer.position + offset;
 
-        // SmoothDamp¸¦ »ç¿ëÇØ Ä«¸Ş¶ó À§Ä¡¸¦ ºÎµå·´°Ô ¸ñÇ¥ À§Ä¡·Î ÀÌµ¿
+        // SmoothDampë¥¼ ì‚¬ìš©í•´ ì¹´ë©”ë¼ ìœ„ì¹˜ë¥¼ ë¶€ë“œëŸ½ê²Œ ëª©í‘œ ìœ„ì¹˜ë¡œ ì´ë™
         transform.position = Vector3.SmoothDamp(
-            transform.position,   // ÇöÀç À§Ä¡
-            targetPosition,       // ¸ñÇ¥ À§Ä¡
-            ref velocity,         // ³»ºÎÀûÀ¸·Î »ç¿ëµÉ ¼Óµµ
-            smoothTime            // ¸ñÇ¥¿¡ µµ´ŞÇÏ´Â µ¥ °É¸®´Â ½Ã°£
+            transform.position,   // í˜„ì¬ ìœ„ì¹˜
+            targetPosition,       // ëª©í‘œ ìœ„ì¹˜
+            ref velocity,         // ë‚´ë¶€ì ìœ¼ë¡œ ì‚¬ìš©ë  ì†ë„
+            smoothTime            // ëª©í‘œì— ë„ë‹¬í•˜ëŠ” ë° ê±¸ë¦¬ëŠ” ì‹œê°„
         );
     }
 }

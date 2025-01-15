@@ -6,7 +6,7 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 
 public class ProjectileController : MonoBehaviour
 {
-    static string prefabAddress = "BasicArrow"; // Addressables¿¡¼­ ¼³Á¤ÇÑ ÁÖ¼Ò
+    static string prefabAddress = "BasicArrow"; // Addressablesì—ì„œ ì„¤ì •í•œ ì£¼ì†Œ
     static GameObject arrowPrefab;
     private Transform shootPoint;
     static GameObject arrowClone;
@@ -19,7 +19,7 @@ public class ProjectileController : MonoBehaviour
         shootPoint = transform.Find("ArrowShootPoint");
 
     }
-    private void LoadPrefab(string address) //¾îµå·¹¼­ºí¿¡¼­ ÇÁ¸®ÆÕ ·Îµå
+    private void LoadPrefab(string address) //ì–´ë“œë ˆì„œë¸”ì—ì„œ í”„ë¦¬íŒ¹ ë¡œë“œ
     {
         Addressables.LoadAssetAsync<GameObject>(address).Completed += OnPrefabLoaded;
     }
@@ -28,14 +28,14 @@ public class ProjectileController : MonoBehaviour
     {
         if (handle.Status == AsyncOperationStatus.Succeeded)
         {
-            arrowPrefab = handle.Result; // ÇÁ¸®ÆÕ ÀÎ½ºÅÏ½ºÈ­
+            arrowPrefab = handle.Result; // í”„ë¦¬íŒ¹ ì¸ìŠ¤í„´ìŠ¤í™”
         }
         
     }
 
     public void Shoot()
     {
-        // È­»ì »ı¼º
+        // í™”ì‚´ ìƒì„±
         GameObject arrow = Instantiate(arrowPrefab, shootPoint.position, shootPoint.rotation);
     }
     

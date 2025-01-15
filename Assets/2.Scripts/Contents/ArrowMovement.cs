@@ -5,9 +5,9 @@ using UnityEngine.EventSystems;
 
 public class ArrowMovement : MonoBehaviour
 {
-    //¾Æ·¡ ÄÚµå¿¡¼­ ¸ğµç Arrow¿¡ Àû¿ëµÉ »çÇ×µéÀº "***" º°Ç¥ ¼¼°³ Ç¥½Ã
-    //·¹º§¸µÀ» ÅëÇØ Áõ°¡ÇÏ´Â °ªÀ» °¡Áö°í ÀÖ´Ù¸é "@@@" Ç¥½Ã
-    //°íÁ¤Àº //°íÁ¤
+    //ì•„ë˜ ì½”ë“œì—ì„œ ëª¨ë“  Arrowì— ì ìš©ë  ì‚¬í•­ë“¤ì€ "***" ë³„í‘œ ì„¸ê°œ í‘œì‹œ
+    //ë ˆë²¨ë§ì„ í†µí•´ ì¦ê°€í•˜ëŠ” ê°’ì„ ê°€ì§€ê³  ìˆë‹¤ë©´ "@@@" í‘œì‹œ
+    //ê³ ì •ì€ //ê³ ì •
 
     private float arrowSpeed = 20.0f; //@@@
     public float destroyDelay = 10f; //@@@
@@ -19,19 +19,19 @@ public class ArrowMovement : MonoBehaviour
 
     private IEnumerator DestroyAfterTime()
     {
-        yield return new WaitForSeconds(destroyDelay); // ÁöÁ¤µÈ ½Ã°£ ´ë±â //***
-        Destroy(gameObject); // °ÔÀÓ ¿ÀºêÁ§Æ® Á¦°Å //***
+        yield return new WaitForSeconds(destroyDelay); // ì§€ì •ëœ ì‹œê°„ ëŒ€ê¸° //***
+        Destroy(gameObject); // ê²Œì„ ì˜¤ë¸Œì íŠ¸ ì œê±° //***
     }
 
     private void OnTriggerEnter(Collider other) //***
     {
-        //Projectile ÅÂ±×¸¦ °¡Áø ¿ÀºêÁ§Æ®°¡ Æ®¸®°Å¿¡ µé¾î¿ÔÀ» ¶§¸¸ ºñÈ°¼ºÈ­
+        //Projectile íƒœê·¸ë¥¼ ê°€ì§„ ì˜¤ë¸Œì íŠ¸ê°€ íŠ¸ë¦¬ê±°ì— ë“¤ì–´ì™”ì„ ë•Œë§Œ ë¹„í™œì„±í™”
         if (other.CompareTag("Enemy")) //***
             Destroy(gameObject); //***
     }
 
     void Update()
     {
-        transform.position += transform.forward * arrowSpeed * Time.deltaTime; //°íÁ¤
+        transform.position += transform.forward * arrowSpeed * Time.deltaTime; //ê³ ì •
     }
 }

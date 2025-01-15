@@ -11,7 +11,7 @@ public class WallManager : MonoBehaviour
     {
         pos = Camera.main.WorldToViewportPoint(transform.position);
 
-        pos.x = 0f; // x ÁÂÇ¥¸¦ Ç×»ó 0À¸·Î °íÁ¤
+        pos.x = 0f; // x ì¢Œí‘œë¥¼ í•­ìƒ 0ìœ¼ë¡œ ê³ ì •
         pos.y = 0f;
         transform.position = Camera.main.ViewportToWorldPoint(pos);
     }

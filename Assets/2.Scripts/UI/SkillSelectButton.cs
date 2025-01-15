@@ -10,21 +10,21 @@ public class SkillSelectButton : MonoBehaviour
 
     private Image icon;
     private Text text_level; private int level;
-    private Text[] get_component; //ÀÚ½Ä¿¡¼­ ÅØ½ºÆ® ÄÄÆ÷³ÍÆ® °¡Á®¿À´Â ¿ëµµ
+    private Text[] get_component; //ìì‹ì—ì„œ í…ìŠ¤íŠ¸ ì»´í¬ë„ŒíŠ¸ ê°€ì ¸ì˜¤ëŠ” ìš©ë„
     string random_skill_name;
 
 
 
     private void Awake()
     {
-        icon = GetComponentsInChildren<Image>()[1];//º»ÀÎÀÇ Imageµµ Æ÷ÇÔµÇ±â ¶§¹®¿¡ [1]À» ÁÜ
-        get_component = GetComponentsInChildren<Text>(); //ÅØ½ºÆ® ÄÄÆ÷³ÍÆ® ÃÊ±âÈ­
-        text_level = get_component[0]; //ÃÊ±âÈ­ÇÑ ÄÄÆ÷³ÍÆ® »ç¿ëÇÒ º¯¼ö¿¡ ÇÑ¹ø ´õ ÃÊ±âÈ­
+        icon = GetComponentsInChildren<Image>()[1];//ë³¸ì¸ì˜ Imageë„ í¬í•¨ë˜ê¸° ë•Œë¬¸ì— [1]ì„ ì¤Œ
+        get_component = GetComponentsInChildren<Text>(); //í…ìŠ¤íŠ¸ ì»´í¬ë„ŒíŠ¸ ì´ˆê¸°í™”
+        text_level = get_component[0]; //ì´ˆê¸°í™”í•œ ì»´í¬ë„ŒíŠ¸ ì‚¬ìš©í•  ë³€ìˆ˜ì— í•œë²ˆ ë” ì´ˆê¸°í™”
     }
 
     void OnEnable()
     {
-        random_skill_name = Managers.RandomSkill.GetRandomKey(); //·£´ı ½ºÅ³ ¹Ş¾Æ¿È
+        random_skill_name = Managers.RandomSkill.GetRandomKey(); //ëœë¤ ìŠ¤í‚¬ ë°›ì•„ì˜´
 
         if(random_skill_name == null)
         {

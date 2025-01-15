@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class RandomSkill
 {
-    System.Random random = new System.Random(); //·£´ı »ç¿ë
+    System.Random random = new System.Random(); //ëœë¤ ì‚¬ìš©
     public List<string> list_keys = new List<string>();
     public bool ALLMAX = false;
 
     public void Init()
     {
-        #region µñ¼Å³Ê¸® ½ºÅ³µéÀÇ Å°°ªÀ» ¸ğµÎ List¿¡´Ù°¡ ÀúÀå
+        #region ë”•ì…”ë„ˆë¦¬ ìŠ¤í‚¬ë“¤ì˜ í‚¤ê°’ì„ ëª¨ë‘ Listì—ë‹¤ê°€ ì €ì¥
         list_keys.Clear();
 
-        //µñ¼Å³Ê¸® ½ºÅ³µéÀÇ Å°°ªÀ» ¸ğµÎ List¿¡´Ù°¡ ÀúÀå
+        //ë”•ì…”ë„ˆë¦¬ ìŠ¤í‚¬ë“¤ì˜ í‚¤ê°’ì„ ëª¨ë‘ Listì—ë‹¤ê°€ ì €ì¥
         foreach (var skill in Managers.AbilityDatas.dic_skillData)
         {
-            //ÇÏÁö¸¸ ¸¸·¦Àº Á¦¿Ü
+            //í•˜ì§€ë§Œ ë§Œë©ì€ ì œì™¸
             if(Managers.SkillState.abilityLevelState[skill.Key] < 5)
             {
                 list_keys.Add(skill.Key);
@@ -25,7 +25,7 @@ public class RandomSkill
 
         if (list_keys.Count == 0)
         {
-            Debug.Log("ÀüºÎ´Ù ¸¸·¦ÀÔ´Ï´Ù");
+            Debug.Log("ì „ë¶€ë‹¤ ë§Œë©ì…ë‹ˆë‹¤");
 
         }
         #endregion
@@ -36,10 +36,10 @@ public class RandomSkill
         if (list_keys.Count == 0)
             return null;
 
-        //ÀüÃ¼ ½ºÅ³ ¸®½ºÆ®¿¡¼­ ·£´ıÇÏ¿© ¹İÈ¯.
+        //ì „ì²´ ìŠ¤í‚¬ ë¦¬ìŠ¤íŠ¸ì—ì„œ ëœë¤í•˜ì—¬ ë°˜í™˜.
         string key = list_keys[random.Next(list_keys.Count)];
 
-        //°¡Á®°¬À¸¸é Áö¿ò
+        //ê°€ì ¸ê°”ìœ¼ë©´ ì§€ì›€
         list_keys.Remove(key);
         Debug.Log(list_keys.Count); 
         

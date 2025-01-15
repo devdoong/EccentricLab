@@ -16,30 +16,30 @@ public class Hawk : MonoBehaviour
         if (collision.transform.CompareTag("Wall"))
         {
 
-            // °¡±î¿î Àû ¿ÀºêÁ§Æ® °¡Á®¿À±â
+            // ê°€ê¹Œìš´ ì  ì˜¤ë¸Œì íŠ¸ ê°€ì ¸ì˜¤ê¸°
             GameObject closeEnemy = Managers.closeEnemy;
 
             Vector3 targetDirection;
 
-            if (closeEnemy != null) // °¡±î¿î ÀûÀÌ Á¸ÀçÇÒ °æ¿ì
+            if (closeEnemy != null) // ê°€ê¹Œìš´ ì ì´ ì¡´ì¬í•  ê²½ìš°
             {
                 targetDirection = (closeEnemy.transform.position - transform.position).normalized;
             }
-            else // °¡±î¿î ÀûÀÌ ¾øÀ» °æ¿ì ÇÃ·¹ÀÌ¾î ¹æÇâÀ¸·Î ¼³Á¤
+            else // ê°€ê¹Œìš´ ì ì´ ì—†ì„ ê²½ìš° í”Œë ˆì´ì–´ ë°©í–¥ìœ¼ë¡œ ì„¤ì •
             {
                 targetDirection = (Managers.Player.transform.position - transform.position).normalized;
             }
 
-            // ¸ñÇ¥ ¹æÇâÀÇ È¸Àü °ª °è»ê
+            // ëª©í‘œ ë°©í–¥ì˜ íšŒì „ ê°’ ê³„ì‚°
             Quaternion targetRotation = Quaternion.LookRotation(targetDirection, Vector3.up);
 
-            // ÇöÀç È¸Àü °ªÀÇ Euler °¢µµ¸¦ °¡Á®¿À±â
+            // í˜„ì¬ íšŒì „ ê°’ì˜ Euler ê°ë„ë¥¼ ê°€ì ¸ì˜¤ê¸°
             Vector3 currentEuler = transform.rotation.eulerAngles;
 
-            // ¸ñÇ¥ È¸Àü °ª¿¡¼­ YÃà¸¸ °¡Á®¿Í ±âÁ¸ X, Z È¸Àü À¯Áö
+            // ëª©í‘œ íšŒì „ ê°’ì—ì„œ Yì¶•ë§Œ ê°€ì ¸ì™€ ê¸°ì¡´ X, Z íšŒì „ ìœ ì§€
             Vector3 newEuler = new Vector3(currentEuler.x, targetRotation.eulerAngles.y, currentEuler.z);
 
-            // »õ È¸Àü °ª Àû¿ë
+            // ìƒˆ íšŒì „ ê°’ ì ìš©
             transform.rotation = Quaternion.Euler(newEuler);
         }
     }

@@ -12,20 +12,20 @@ using UnityEngine.UIElements;
 public class PoolManager
 {
 
-    #region Ç®ÀåÀ» ¸¸µé º¯¼ö
-    GameObject[] prefabs; //ÇÁ¸®ÆÕ ¸ø°¡Á®¿È.
+    #region í’€ì¥ì„ ë§Œë“¤ ë³€ìˆ˜
+    GameObject[] prefabs; //í”„ë¦¬íŒ¹ ëª»ê°€ì ¸ì˜´.
     List<GameObject>[] pools;
     #endregion
 
-    GameObject pool; //ÇÏÀÌ·¯Å° »ó¿¡¼­ Ç®Àå ¿ªÇÒÀ» ÇØÁÙ ºÎ¸ğ
+    GameObject pool; //í•˜ì´ëŸ¬í‚¤ ìƒì—ì„œ í’€ì¥ ì—­í• ì„ í•´ì¤„ ë¶€ëª¨
 
     public void Init()
     {
-        #region Ç®Àå »ı¼º
+        #region í’€ì¥ ìƒì„±
         prefabs = new GameObject[1];
-        prefabs[0]= Managers.Enemy;//ÀÓ½Ã
-        pools = new List<GameObject>[prefabs.Length]; //¸î°³ÀÇ Ç®ÀåÀÌ ÇÊ¿äÇÑ°¡. -> µî·ÏµÈ ÇÁ¸®ÆÕ ¸¸Å­
-        for (int i = 0; i < pools.Length; i++)  //Ç®Àå ¸¸µé¾îÁÖ´Â ÀÛ¾÷.
+        prefabs[0]= Managers.Enemy;//ì„ì‹œ
+        pools = new List<GameObject>[prefabs.Length]; //ëª‡ê°œì˜ í’€ì¥ì´ í•„ìš”í•œê°€. -> ë“±ë¡ëœ í”„ë¦¬íŒ¹ ë§Œí¼
+        for (int i = 0; i < pools.Length; i++)  //í’€ì¥ ë§Œë“¤ì–´ì£¼ëŠ” ì‘ì—….
             pools[i] = new List<GameObject>();
         #endregion
 
@@ -38,20 +38,20 @@ public class PoolManager
     {
         GameObject select = null;
 
-        foreach (GameObject go in pools[index]) //È°¼ºÈ­ ÇÏ°íÀÚ ÇÏ´Â°Ô Ç®¿¡ ÀÖ´Â°¡ ¼øÈ¸
+        foreach (GameObject go in pools[index]) //í™œì„±í™” í•˜ê³ ì í•˜ëŠ”ê²Œ í’€ì— ìˆëŠ”ê°€ ìˆœíšŒ
         {
-            if (go.activeSelf == false) //È°¼ºÈ­»óÅÂ°¡ ¾Æ´Ï¶ó¸é?
+            if (go.activeSelf == false) //í™œì„±í™”ìƒíƒœê°€ ì•„ë‹ˆë¼ë©´?
             {
                 select = go; 
-                select.SetActive(true); //È°¼ºÈ­
-                break; //foreach Å»ÃâÇØ¾ßÇÔ. Ãß°¡ È°¼ºÈ­ x
+                select.SetActive(true); //í™œì„±í™”
+                break; //foreach íƒˆì¶œí•´ì•¼í•¨. ì¶”ê°€ í™œì„±í™” x
             }
         }
 
-        if (select == null) //À§¿¡ foreach¿¡¼­ Ç® ¼øÈ¸ ´Ù Çß´Âµ¥µµ nullÀÌ¸é (ÀüºÎ´Ù È°¼ºÈ­ »óÅÂ¸é)
+        if (select == null) //ìœ„ì— foreachì—ì„œ í’€ ìˆœíšŒ ë‹¤ í–ˆëŠ”ë°ë„ nullì´ë©´ (ì „ë¶€ë‹¤ í™œì„±í™” ìƒíƒœë©´)
         {
-            select = Managers.Instance.InstantiatePrefab(prefabs[index], pool.transform) ; //¸ó½ºÅÍ ÇÁ¸®ÆÕÀ» ¼±ÅÃÇØ¼­
-            pools[index].Add(select); //ÇØ´ç ¸ó½ºÅÍÀÇ Ç®¿¡´Ù°¡ ³Ö¾îÁÜ
+            select = Managers.Instance.InstantiatePrefab(prefabs[index], pool.transform) ; //ëª¬ìŠ¤í„° í”„ë¦¬íŒ¹ì„ ì„ íƒí•´ì„œ
+            pools[index].Add(select); //í•´ë‹¹ ëª¬ìŠ¤í„°ì˜ í’€ì—ë‹¤ê°€ ë„£ì–´ì¤Œ
         }
 
 

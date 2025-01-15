@@ -7,22 +7,22 @@ public class SkillStateManager
 {
 
     public readonly int MaxSkillLevel = 5;
-    public Dictionary<string,float> abilityState = new Dictionary<string,float>(); //Value : ÇöÀç ½ºÅ³ÀÇ °ª.
-    public Dictionary<string,int> abilityLevelState = new Dictionary<string, int>(); //Value : ÇöÀç ½ºÅ³ ·¹º§
+    public Dictionary<string,float> abilityState = new Dictionary<string,float>(); //Value : í˜„ì¬ ìŠ¤í‚¬ì˜ ê°’.
+    public Dictionary<string,int> abilityLevelState = new Dictionary<string, int>(); //Value : í˜„ì¬ ìŠ¤í‚¬ ë ˆë²¨
 
     public void Init() //
     {
-        foreach (var skilldata in Managers.AbilityDatas.dic_skillData) //ÀüÃ¼ ½ºÅ³µéÀ» ¼øÈ¸ÇÏ¸é¼­
+        foreach (var skilldata in Managers.AbilityDatas.dic_skillData) //ì „ì²´ ìŠ¤í‚¬ë“¤ì„ ìˆœíšŒí•˜ë©´ì„œ
         {
             //Debug.Log(skilldata);
             abilityState[skilldata.Key] = skilldata.Value.Damage; //
             abilityLevelState[skilldata.Key] = 0;
         }
     }
-    public float GetState(string name) //µ¥¹ÌÁö ¹İÈ¯
+    public float GetState(string name) //ë°ë¯¸ì§€ ë°˜í™˜
     {
         name = name.Replace("(Clone)", "");
-        return abilityState[name]; //µ¥¹ÌÁö ¹İÈ¯
+        return abilityState[name]; //ë°ë¯¸ì§€ ë°˜í™˜
     }
 
     public bool AbilitySelected_LevelUp(string name)
@@ -35,7 +35,7 @@ public class SkillStateManager
             abilityLevelState[name]++;
             return false;
         }
-        else return true; //ÇØ´ç ½ºÅ³ÀÇ ·¹º§ È¹µæÀÌ ÃÖ´ëÄ¡¶ó¸é
+        else return true; //í•´ë‹¹ ìŠ¤í‚¬ì˜ ë ˆë²¨ íšë“ì´ ìµœëŒ€ì¹˜ë¼ë©´
     }
 
 }

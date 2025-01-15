@@ -9,13 +9,13 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 
 public class PlayerController : MonoBehaviour
 {
-    #region ÇÃ·¹ÀÌ¾î ÀÌµ¿¿¡ ÇÊ¿äÇÑ º¯¼ö
+    #region í”Œë ˆì´ì–´ ì´ë™ì— í•„ìš”í•œ ë³€ìˆ˜
     public float moveSpeed = 5.0f; 
     public float turnSpeed = 10.0f;
     static public Vector3 m_Movement;
     #endregion
 
-    #region È­»ì ¹ß»ç¿¡ ÇÊ¿äÇÑ º¯¼ö
+    #region í™”ì‚´ ë°œì‚¬ì— í•„ìš”í•œ ë³€ìˆ˜
     private GameObject arrowPrefab;
     private Transform shootPoint;
     #endregion
@@ -24,21 +24,21 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
-        #region ÇÃ·¹ÀÌ¾î ÀÌµ¿ ·ÎÁ÷
-        float horizontal = Input.GetAxis("Horizontal"); // ¼öÆò ÀÔ·Â
-        float vertical = Input.GetAxis("Vertical"); // ¼öÁ÷ ÀÔ·Â
+        #region í”Œë ˆì´ì–´ ì´ë™ ë¡œì§
+        float horizontal = Input.GetAxis("Horizontal"); // ìˆ˜í‰ ì…ë ¥
+        float vertical = Input.GetAxis("Vertical"); // ìˆ˜ì§ ì…ë ¥
 
-        m_Movement = new Vector3(horizontal, 0, vertical).normalized; //º¤ÅÍ Á¤±ÔÈ­
+        m_Movement = new Vector3(horizontal, 0, vertical).normalized; //ë²¡í„° ì •ê·œí™”
 
         transform.position += m_Movement * moveSpeed * Time.deltaTime;
         #endregion
 
-        #region Àû ¹Ù¶óº¸´Â ·ÎÁ÷
+        #region ì  ë°”ë¼ë³´ëŠ” ë¡œì§
         closeEnemy = Managers.closeEnemy;
         if (closeEnemy != null)
         {
-            Vector3 dir = (closeEnemy.transform.position - transform.position).normalized; //¹Ù¶óºÁ¾ßÇÒ ¹æÇâ
-            Quaternion toRotation = Quaternion.LookRotation(dir, Vector3.up); //±× ¹æÇâÀ¸·Î µ¹¸®±â À§ÇÑ ÄõÅÍ´Ï¾ğ.
+            Vector3 dir = (closeEnemy.transform.position - transform.position).normalized; //ë°”ë¼ë´ì•¼í•  ë°©í–¥
+            Quaternion toRotation = Quaternion.LookRotation(dir, Vector3.up); //ê·¸ ë°©í–¥ìœ¼ë¡œ ëŒë¦¬ê¸° ìœ„í•œ ì¿¼í„°ë‹ˆì–¸.
             transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, turnSpeed * Time.deltaTime);
         }
         #endregion
