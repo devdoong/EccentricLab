@@ -7,24 +7,29 @@ public class SkillSelectButton : MonoBehaviour
 {
 
 
+    private Image icon;
+    private Text text_level; private int level;
+    private Text[] get_component; //자식에서 텍스트 컴포넌트 가져오는 용도
+    string[] random_skill_name;
 
-    //버튼을 눌렀을때 랜덤한 3개를 반환해 줄 클래스 하나 필요.
-    //위 클래스에서는 스킬이름만 반환해주고 나머지는 SkillStateManager 에서 관리
-    //
 
-    public Image _image;
-    public Text _text;
-    public List<Sprite> sprites;
-    public Dictionary<string,Sprite> dic_sprites;
 
-    void Start()
+    private void Awake()
     {
-        _image = GetComponent<Image>();
-        _text = GetComponent<Text>();
+        icon = GetComponentsInChildren<Image>()[1];//본인의 Image도 포함되기 때문에 [1]을 줌
+        get_component = GetComponentsInChildren<Text>(); //텍스트 컴포넌트 초기화
+        text_level = get_component[0]; //초기화한 컴포넌트 사용할 변수에 한번 더 초기화
     }
 
-    void test()
+    void OnEnable()
     {
-        _image.sprite = sprites[0];
+        random_skill_name = Managers.RandomSkill.GetRandomKey(); //랜덤 스킬 3개 불러옴
+
+
+        icon.sprite = Managers.AbilityDatas.dic_skillData[random_skill_name[0]].icon_sprite;
+        level = Managers.SkillState.abilityLevelState[random_skill_name[0]];
+        text_level.text = "Level: "+level.ToString();
+
     }
+
 }

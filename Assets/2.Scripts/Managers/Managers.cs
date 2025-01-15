@@ -11,7 +11,7 @@ public class Managers : MonoBehaviour
     static bool s_initialized = false;
 
     public static GameObject closeEnemy;
-    
+    public Sprite[] sprites;
 
     #region Managers
     PoolManager _pool = new PoolManager();

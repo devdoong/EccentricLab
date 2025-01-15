@@ -1,17 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
 public class GameManager : MonoBehaviour
 {
+    public Sprite[] sprites;
+
     #region Wall
     public GameObject[] walls = new GameObject[2];
     public Vector3 posWall_Bottom_Left;
     public Vector3 posWall_Top_Right;
     #endregion
     
-    
-
     void Update()
     {
         #region Wall
