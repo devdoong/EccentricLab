@@ -25,11 +25,13 @@ public class SkillSelectButton : MonoBehaviour
     void OnEnable()
     {
         random_skill_name = Managers.RandomSkill.GetRandomKey(); //·£´ý ½ºÅ³ ¹Þ¾Æ¿È
+
         if(random_skill_name == null)
         {
             gameObject.SetActive(false);
             return;
         }
+
 
         icon.sprite = Managers.AbilityDatas.dic_skillData[random_skill_name].icon_sprite;
         level = Managers.SkillState.abilityLevelState[random_skill_name];

@@ -38,12 +38,12 @@ public class RandomSkill
 
         //전체 스킬 리스트에서 랜덤하여 반환.
         string key = list_keys[random.Next(list_keys.Count)];
-        Debug.Log(list_keys.Count);
-        list_keys.Remove(key);//어떤 하나의 버튼이 가져갔으니까 중첩되지 않도록 삭제
-        if (list_keys.Count == 0)
-        {
-            return null;
-        }
+
+        //가져갔으면 지움
+        list_keys.Remove(key);
+        Debug.Log(list_keys.Count); 
+        
+
         return key;
 
         
