@@ -38,15 +38,6 @@ public class GameManager : MonoBehaviour
         #endregion
     }
 
-    private void Start()
-    {
 
-        string[] strings = Managers.RandomSkill.GetRandomKey();
-
-        foreach (string s in strings)
-        {
-            Debug.Log(s);
-        }
-    }
 
 }

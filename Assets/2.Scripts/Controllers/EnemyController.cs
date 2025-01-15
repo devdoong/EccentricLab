@@ -101,7 +101,6 @@ public class EnemyController : MonoBehaviour
             if (damage_Timer >= damage_delayTime)
             {
                 damage_Timer = 0;
-                Debug.Log(Managers.HP.OnDamaged(damage));
             }
             
         }

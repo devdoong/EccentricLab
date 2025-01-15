@@ -66,6 +66,7 @@ public class Managers : MonoBehaviour
         _skillState.Init();
         _pool.Init();
         _damage.Init();
+        _randomSkill.Init();
     }
     public static Managers Instance
     {
