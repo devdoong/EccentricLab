@@ -5,38 +5,38 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    #region ±âº»º¯¼ö
-    static Transform player; //ÇÃ·¹ÀÌ¾î transform
-    public float moveSpeed = 3.0f; //ÀÌµ¿ ¼Óµµ
-    public float turnSpeed = 20.0f; //rotationÇÏ¿© µ¹¾Æº¸´Â ¼Óµµ
-    public float backAmount = 1.0f; //³Ë¹éµÇ´Â ½Ã°£
+    #region ê¸°ë³¸ë³€ìˆ˜
+    static Transform player; //í”Œë ˆì´ì–´ transform
+    public float moveSpeed = 3.0f; //ì´ë™ ì†ë„
+    public float turnSpeed = 20.0f; //rotationí•˜ì—¬ ëŒì•„ë³´ëŠ” ì†ë„
+    public float backAmount = 1.0f; //ë„‰ë°±ë˜ëŠ” ì‹œê°„
     #endregion
 
-    #region °¡±îÀÌ¿À¸é ¸ØÃß±â ¿ëµµÀÇ º¯¼ö
-    public bool isCollision = false; //ÇÃ·¹ÀÌ¾î¿Í Ãæµ¹ »óÅÂ
-    public float distance; //ÇÃ·¹ÀÌ¾î¿ÍÀÇ °Å¸®Â÷ÀÌ¸¦ ±¸ÇÏ¿© ¹Ù·Î ¾Õ±îÁö ¿Ô´Ù¸é ÀÌµ¿À» ¸ØÃß±â À§ÇØ¼­.
+    #region ê°€ê¹Œì´ì˜¤ë©´ ë©ˆì¶”ê¸° ìš©ë„ì˜ ë³€ìˆ˜
+    public bool isCollision = false; //í”Œë ˆì´ì–´ì™€ ì¶©ëŒ ìƒíƒœ
+    public float distance; //í”Œë ˆì´ì–´ì™€ì˜ ê±°ë¦¬ì°¨ì´ë¥¼ êµ¬í•˜ì—¬ ë°”ë¡œ ì•ê¹Œì§€ ì™”ë‹¤ë©´ ì´ë™ì„ ë©ˆì¶”ê¸° ìœ„í•´ì„œ.
     public float stop_distance = 0.86f;
     #endregion
 
-    #region ¸ó½ºÅÍ Ã¼·Â
+    #region ëª¬ìŠ¤í„° ì²´ë ¥
     public float HP = 100;
     public float MaxHP = 100;
     #endregion
 
-    #region ³Ë¹éÀ» À§ÇÑ º¯¼ö
+    #region ë„‰ë°±ì„ ìœ„í•œ ë³€ìˆ˜
     private bool isKnockBack = false;
-    public float knockBackDuration = 0.2f; // ³Ë¹é Áö¼Ó ½Ã°£
-    public float knockBackTimer = 0f; // ³Ë¹é Å¸ÀÌ¸Ó
+    public float knockBackDuration = 0.2f; // ë„‰ë°± ì§€ì† ì‹œê°„
+    public float knockBackTimer = 0f; // ë„‰ë°± íƒ€ì´ë¨¸
     static Rigidbody enemt_rigidbody;
-    Color originalColor; //»ç¿ë¾ÈÇÔ
+    Color originalColor; //ì‚¬ìš©ì•ˆí•¨
     #endregion
 
-    #region °æÇèÄ¡ µå¶ø¿¡ ÇÊ¿äÇÑ º¯¼ö
+    #region ê²½í—˜ì¹˜ ë“œëì— í•„ìš”í•œ ë³€ìˆ˜
     public GameObject gem;
     private GameObject gemParent;
     #endregion
 
-    #region µ¥¹ÌÁö¸¦ ÁÖ±â À§ÇÑ º¯¼ö
+    #region ë°ë¯¸ì§€ë¥¼ ì£¼ê¸° ìœ„í•œ ë³€ìˆ˜
     public float damage = 1;
     public float damage_Timer = 0f;
     public float damage_delayTime = 0.3f;
@@ -47,18 +47,18 @@ public class EnemyController : MonoBehaviour
         player = GameObject.Find("BasicArcher").transform;
         enemt_rigidbody = GetComponent<Rigidbody>();
         gemParent = GameObject.Find("@Gems");
-        if (gemParent == null) Debug.LogWarning("@Gems¸¦ ÇÏÀÌ·¯Å°Ã¢¿¡¼­ Ã£À» ¼ö ¾ø½À´Ï´Ù.");
+        if (gemParent == null) Debug.LogWarning("@Gemsë¥¼ í•˜ì´ëŸ¬í‚¤ì°½ì—ì„œ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
     }
     private void Update()
     {
-        #region ÇÃ·¹ÀÌ¾îÀÇ ¹æÇâ °è»ê
-        // ÇÃ·¹ÀÌ¾î¿ÍÀÇ ¹æÇâ º¤ÅÍ °è»ê (yÃà È¸Àü¸¸ °í·ÁÇÏ·Á°í y=0 Ã³¸®)
+        #region í”Œë ˆì´ì–´ì˜ ë°©í–¥ ê³„ì‚°
+        // í”Œë ˆì´ì–´ì™€ì˜ ë°©í–¥ ë²¡í„° ê³„ì‚° (yì¶• íšŒì „ë§Œ ê³ ë ¤í•˜ë ¤ê³  y=0 ì²˜ë¦¬)
         Vector3 direction = player.position - transform.position;
-        direction.y = 0f; // ¼öÁ÷ ¹æÇâÀº ¹«½ÃÇÏ°í È¸Àü
+        direction.y = 0f; // ìˆ˜ì§ ë°©í–¥ì€ ë¬´ì‹œí•˜ê³  íšŒì „
         #endregion
 
-        #region ÇÃ·¹ÀÌ¾î¿¡°Ô rotation
-        // ¸ó½ºÅÍ°¡ ÇÃ·¹ÀÌ¾î¸¦ ¹Ù¶óº¸µµ·Ï È¸Àü
+        #region í”Œë ˆì´ì–´ì—ê²Œ rotation
+        // ëª¬ìŠ¤í„°ê°€ í”Œë ˆì´ì–´ë¥¼ ë°”ë¼ë³´ë„ë¡ íšŒì „
         Quaternion targetRotation = Quaternion.LookRotation(direction, Vector3.up);
         transform.rotation = Quaternion.Lerp(
             transform.rotation,
@@ -67,33 +67,33 @@ public class EnemyController : MonoBehaviour
         );
         #endregion
         
-        #region ÇÃ·¹ÀÌ¾î¿ÍÀÇ Ãæµ¹ ÆÇ´Ü
+        #region í”Œë ˆì´ì–´ì™€ì˜ ì¶©ëŒ íŒë‹¨
         distance = Vector3.Distance(player.position,transform.position);
         if (distance <= stop_distance) isCollision = true;
         else if (distance > stop_distance) isCollision = false;
         #endregion
 
-        #region ÇÃ·¹ÀÌ¾î¿¡°Ô ÀüÁø : ÇÇ°İÀÔÀº»óÅÂµµ ¾Æ´Ï°í / ÇÃ·¹ÀÌ¾î¿Í Ãæµ¹ »óÅÂµµ ¾Æ´Ï¸é
-        //¼øÁ¶·Ó°Ô ÀüÁø
+        #region í”Œë ˆì´ì–´ì—ê²Œ ì „ì§„ : í”¼ê²©ì…ì€ìƒíƒœë„ ì•„ë‹ˆê³  / í”Œë ˆì´ì–´ì™€ ì¶©ëŒ ìƒíƒœë„ ì•„ë‹ˆë©´
+        //ìˆœì¡°ë¡­ê²Œ ì „ì§„
         if (isKnockBack == false && isCollision == false) 
-            transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime); //ÀüÁø
+            transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime); //ì „ì§„
         #endregion
 
-        #region ³Ë¹éÀ» À§ÇØ ÇÃ·¹ÀÌ¾î¿¡°Ô ÀüÁøÀ» ÀÏ½ÃÁ¤ÁöÇÏ°í ³Ë¹éÀÌ ÀÌ·ç¾îÁú ½Ã°£ Ã¼Å©
-        //ÀüÁøÇÏ´Ù°¡ µ¥¹ÌÁö¸¦ ÀÔ¾î ³Ë¹é Å¸ÀÌ¸Ó ½ÃÀÛ //À§¿¡ if¹®(ÇÃ·¹ÀÌ¾î¿¡°Ô ÀüÁø) ÀÌ Á¤ÁöµÇ¾î¾ß ¼ø¼öÈ÷ µÚ·Î ³Ë¹éÀÌ ÀÌ·ç¾îÁú°ÍÀÓ
+        #region ë„‰ë°±ì„ ìœ„í•´ í”Œë ˆì´ì–´ì—ê²Œ ì „ì§„ì„ ì¼ì‹œì •ì§€í•˜ê³  ë„‰ë°±ì´ ì´ë£¨ì–´ì§ˆ ì‹œê°„ ì²´í¬
+        //ì „ì§„í•˜ë‹¤ê°€ ë°ë¯¸ì§€ë¥¼ ì…ì–´ ë„‰ë°± íƒ€ì´ë¨¸ ì‹œì‘ //ìœ„ì— ifë¬¸(í”Œë ˆì´ì–´ì—ê²Œ ì „ì§„) ì´ ì •ì§€ë˜ì–´ì•¼ ìˆœìˆ˜íˆ ë’¤ë¡œ ë„‰ë°±ì´ ì´ë£¨ì–´ì§ˆê²ƒì„
         else if (isKnockBack == true){
-            knockBackTimer += Time.deltaTime; //³Ë¹é Å¸ÀÌ¸Ó
+            knockBackTimer += Time.deltaTime; //ë„‰ë°± íƒ€ì´ë¨¸
             transform.position = Vector3.MoveTowards(transform.position, transform.Find("KnockBackPosition").position, 3 * Time.deltaTime);
-            if (knockBackTimer >= knockBackDuration) //³Ë¹é Áö¼Ó½Ã°£ ÃæÁ·ÇßÀ¸¸é
+            if (knockBackTimer >= knockBackDuration) //ë„‰ë°± ì§€ì†ì‹œê°„ ì¶©ì¡±í–ˆìœ¼ë©´
             {
                 knockBackTimer = 0;
-                isKnockBack = false; //³Ë¹é»óÅÂ ¾Æ´ÔÀ¸·Î µ¹¸²
+                isKnockBack = false; //ë„‰ë°±ìƒíƒœ ì•„ë‹˜ìœ¼ë¡œ ëŒë¦¼
             }
 
         }
         #endregion
 
-        #region ÇÃ·¹ÀÌ¾î¿¡°Ô µ¥¹ÌÁö ÀÔÈû
+        #region í”Œë ˆì´ì–´ì—ê²Œ ë°ë¯¸ì§€ ì…í˜
         if(isCollision == true)
         {
             damage_Timer += Time.deltaTime;
@@ -110,19 +110,19 @@ public class EnemyController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        #region µ¥¹ÌÁö ÀÔ¾úÀ» ¶§
-        //µ¥¹ÌÁö¼Ò½º ÅÂ±×¸¦ °¡Áø ¿ÀºêÁ§Æ®°¡ Æ®¸®°Å¿¡ µé¾î¿ÔÀ» ¶§¸¸ ºñÈ°¼ºÈ­
+        #region ë°ë¯¸ì§€ ì…ì—ˆì„ ë•Œ
+        //ë°ë¯¸ì§€ì†ŒìŠ¤ íƒœê·¸ë¥¼ ê°€ì§„ ì˜¤ë¸Œì íŠ¸ê°€ íŠ¸ë¦¬ê±°ì— ë“¤ì–´ì™”ì„ ë•Œë§Œ ë¹„í™œì„±í™”
         if (other.CompareTag("DamageSource"))
         {
-            #region Ã¼·Â°¨¼Ò, ³Ë¹é
+            #region ì²´ë ¥ê°ì†Œ, ë„‰ë°±
             HP -= Managers.SkillState.GetState((other.transform.parent != null) ? other.transform.parent.name : other.transform.name);
-            isKnockBack = true;//³Ë¹é
+            isKnockBack = true;//ë„‰ë°±
             #endregion
 
-            #region »ç¸ÁÃ³¸® (ºñÈ°¼ºÈ­, Àëµå¶ø)
+            #region ì‚¬ë§ì²˜ë¦¬ (ë¹„í™œì„±í™”, ì¼ë“œë)
             if (HP <= 0)
             {
-                //3. 0ÀÌ¸é ºñÈ°¼ºÈ­ +Ã¼·ÂÀ» MAXHP·Î ¸®¼Â
+                //3. 0ì´ë©´ ë¹„í™œì„±í™” +ì²´ë ¥ì„ MAXHPë¡œ ë¦¬ì…‹
                 GameObject instance_gem= Instantiate(gem, transform.position, Quaternion.identity, gemParent.transform);
                 gameObject.SetActive(false);
                 HP = MaxHP;
