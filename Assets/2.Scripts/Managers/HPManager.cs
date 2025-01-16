@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HPManager
 {
-    private float _HP =100; public float HP => _HP;
+    public  float _HP =100; public float HP => _HP;
     private float _MaxHP =100; public float MaxHP => _MaxHP;
     private float _hpIncrease = 50; public float HPIncrease => _hpIncrease;
 

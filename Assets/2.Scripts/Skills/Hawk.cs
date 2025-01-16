@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Hawk : MonoBehaviour
 {
-    private  float hawkSpeed = 40.0f;
+    private  float hawkSpeed = 20.0f;
     void Update()
     {
         transform.position += transform.forward * hawkSpeed * Time.deltaTime;

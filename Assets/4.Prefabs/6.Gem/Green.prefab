@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 417828}
   - component: {fileID: 3329980}
   - component: {fileID: 2383426}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Greend
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 4779174895697055860}
   - component: {fileID: -3016367699109632124}
   - component: {fileID: -9000318144683552492}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Green
   m_TagString: Untagged
   m_Icon: {fileID: 0}

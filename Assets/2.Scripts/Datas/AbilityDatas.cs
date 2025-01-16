@@ -10,27 +10,23 @@ public class SkillData
     public string Description; //설명
     public string LevelUpDescription;
     public Sprite icon_sprite;
+    public float SpecialValue;
+    public float SpecialValuePerLevel;
 
 
-    public SkillData(float damage, float damagePerLevel, string description, string levelUpDescription, Sprite icon)
+    public SkillData(float damage, float damagePerLevel, string description, string levelUpDescription, Sprite icon, float specialValue = 0, float specialValue_PerLevel = 0)
     { //시작기본데미지 , 레벨업당 데미지 상승량 , 스킬설명, 레벨업시 스킬설명
         Damage = damage;
         DamagePerLevel = damagePerLevel;
         Description = description;
         LevelUpDescription = levelUpDescription;
         this.icon_sprite = icon;
+        SpecialValue = specialValue; //각 스킬의 색깔에 맞는 상승값
+        SpecialValuePerLevel = specialValue_PerLevel;
     }
 }
 public class AbilityDatas
 {
-
-   /* private Sprite[] sprites;
-
-    AbilityDatas(Sprite[] sprites)
-    {
-        this.sprites = sprites;
-    }*/
-    
     public Dictionary<string, SkillData> dic_skillData = new Dictionary<string, SkillData>();
     public void Init()
     {
@@ -55,15 +51,16 @@ public class AbilityDatas
 
                 );
 
-        dic_skillData["RotationalSolid"] = 
+        dic_skillData["RotationalSolid"] =
 
             new SkillData(
-            15, 
-            7.5f, 
-            "주변을 회전하며 적을 공격하는 바람", 
+            15,
+            7.5f, //회전체 속도
+            "주변을 회전하며 적을 공격하는 바람",
             "회전 갯수 증가",
-            Managers.Instance.sprites[2]
-
+            Managers.Instance.sprites[2],
+            104f, //회전속도 기본값
+            54f //회전속도 증가값
             );
 
         dic_skillData["Hawk"] = 

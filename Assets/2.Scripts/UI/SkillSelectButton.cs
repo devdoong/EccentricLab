@@ -44,7 +44,73 @@ public class SkillSelectButton : MonoBehaviour
         Managers.SkillState.abilityLevelState[random_skill_name]++;
         GameObject levelUp = Managers.Instance.Find_GO("LevelUp");
         Time.timeScale = 1f;
+        SkillUpgrade(random_skill_name);
         levelUp.SetActive(false);
+    }
+
+    private void SkillUpgrade(string random_skill_name)
+    {
+        switch (random_skill_name)
+        {
+            case "HP":
+                CallHP();
+                break;
+            case "Arrow":
+                break;
+            case "RotationalSolid":
+                CallRotationalSolid();
+                break;
+            case "Hawk":
+                CallHawk();
+                break;
+            default:
+                Debug.LogError("업그레이드 등록이 안된 스킬입니다.");
+                break;
+
+        }
+    }
+
+    private void CallHP()
+    {
+        Managers.HP.MaxUP();
+    }
+
+    private void CallArrow()
+    {
+
+    }
+
+    private void CallRotationalSolid() //이 함수는 외부 클래스에 존재해
+    {
+        GameObject go = Managers.Instance.Find_GO("RotationalSolid");
+        if (go == null) { Debug.Log(" RotationalSolid오브젝트 발견 못함"); }
+
+
+        if (Managers.SkillState.abilityLevelState["RotationalSolid"] == 1)
+        {
+            go.SetActive(true);
+            return;
+        }
+        Debug.Log("여기까지 내려옴");
+        Managers.SkillState.specialState["RotationalSolid"] += Managers.AbilityDatas.dic_skillData["RotationalSolid"].SpecialValuePerLevel;
+        go.SetActive(false);
+        go.SetActive(true); //해당 오브젝트의 OnEnable에 회전속도 초기화가 들어있음
+    }
+    private void CallHawk()
+    {
+        GameObject go = Managers.Instance.Find_GO("Hawk");
+        GameObject RePositioning;
+        if (go == null) { Debug.Log(" Hawk 발견 못함"); }
+
+
+        if (Managers.SkillState.abilityLevelState["Hawk"] == 1)
+        {
+            go.SetActive(true);
+            return;
+        }
+
+        RePositioning=Instantiate(go);
+        RePositioning.transform.position = new Vector3(Managers.Player.position.x, 1f, Managers.Player.position.z);
     }
 
 }
