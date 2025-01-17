@@ -7,7 +7,7 @@ using UnityEngine.Events;
 public class LevelManager
 {
     private float level = 1; public float Level => level;
-    private float maxExp = 70; public float MaxExp => maxExp;
+    private float maxExp = 30; public float MaxExp => maxExp;
     private float myExp = 0; public float MyExp => myExp;
     private float expIncrease = 30; public float ExpIncrease => expIncrease;
     private float maxlevel = 30; public float MaxLevel => maxlevel;
@@ -24,7 +24,6 @@ public class LevelManager
         {
             maxLevel();
             levelUp.SetActive(true);
-
         }
 
         else if ( level < maxlevel )
@@ -33,6 +32,7 @@ public class LevelManager
             this.myExp = 0;
             this.maxExp += this.expIncrease;
             levelUp.SetActive(true);
+
         }
     }
     public void getExp(float exp_amount)

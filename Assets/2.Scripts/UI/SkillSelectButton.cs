@@ -25,16 +25,22 @@ public class SkillSelectButton : MonoBehaviour
 
     void OnEnable()
     {
+        Debug.Log(transform.name + ": ON!!!!!");
         random_skill_name = Managers.RandomSkill.GetRandomKey(); //랜덤 스킬 받아옴
         if (transform.name == "3")
         {
             Debug.Log("transform : " + transform.name);
-            transform.gameObject.SetActive(AllMax);
             Debug.Log(AllMax);
+            if (AllMax == false)
+            {
+                transform.gameObject.SetActive(false);
+            }
             return;
         }
-        if (random_skill_name == null && transform.name != "3") //다가져가고 남는게 없을경우에
+
+        if (random_skill_name == null) //다가져가고 남는게 없을경우에
         {
+            Debug.Log("잔여스킬 없음");
             gameObject.SetActive(false); //이 버튼은 꺼줌
             return;
         }
@@ -44,6 +50,11 @@ public class SkillSelectButton : MonoBehaviour
 
     }
 
+    private void OnDisable()
+    {
+        Debug.Log(transform.name + ": OFF!!!!!");
+
+    }
 
     public void Click()
     {

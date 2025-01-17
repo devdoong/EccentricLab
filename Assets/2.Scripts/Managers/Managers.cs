@@ -11,6 +11,7 @@ public class Managers : MonoBehaviour
     static Managers s_instance;
     static bool s_initialized = false;
     public GameObject HealPack;
+    public GameObject[] list_LevelUp;
 
     public static GameObject closeEnemy;
     public Sprite[] sprites;

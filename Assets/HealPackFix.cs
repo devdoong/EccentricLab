@@ -6,6 +6,6 @@ public class HealPackFix : MonoBehaviour
 {
     private void OnEnable()
     {
-        Managers.Instance.HealPack.SetActive(true);
+        //Managers.Instance.HealPack.SetActive(true);
     }
 }
