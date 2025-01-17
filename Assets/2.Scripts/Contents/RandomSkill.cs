@@ -25,8 +25,10 @@ public class RandomSkill
 
         if (list_keys.Count == 0)
         {
-            Debug.Log("전부다 만랩입니다");
 
+            Debug.Log("전부다 만랩입니다");
+            SkillSelectButton.AllMax = true;
+            Debug.Log(SkillSelectButton.AllMax);
         }
         #endregion
     }
@@ -41,7 +43,6 @@ public class RandomSkill
 
         //가져갔으면 지움
         list_keys.Remove(key);
-        Debug.Log(list_keys.Count); 
         
 
         return key;

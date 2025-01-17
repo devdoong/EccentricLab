@@ -10,6 +10,7 @@ public class Managers : MonoBehaviour
 {
     static Managers s_instance;
     static bool s_initialized = false;
+    public GameObject HealPack;
 
     public static GameObject closeEnemy;
     public Sprite[] sprites;
@@ -68,6 +69,12 @@ public class Managers : MonoBehaviour
         _pool.Init();
         _damage.Init();
         _randomSkill.Init();
+
+        foreach (var data in SkillState.abilityLevelState.Keys.ToList())
+        {
+            SkillState.abilityLevelState[data] = 4;
+        }
+        
     }
     public static Managers Instance
     {

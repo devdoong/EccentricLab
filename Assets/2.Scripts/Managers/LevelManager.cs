@@ -13,7 +13,7 @@ public class LevelManager
     private float maxlevel = 30; public float MaxLevel => maxlevel;
 
 
-    public bool levelUp()
+    public void levelUp()
     {
         GameObject levelUp = Managers.Instance.Find_GO("LevelUp");
         Time.timeScale = 0f;
@@ -23,7 +23,8 @@ public class LevelManager
         if (level >= maxlevel) 
         {
             maxLevel();
-            return false;
+            levelUp.SetActive(true);
+
         }
 
         else if ( level < maxlevel )
@@ -32,9 +33,7 @@ public class LevelManager
             this.myExp = 0;
             this.maxExp += this.expIncrease;
             levelUp.SetActive(true);
-            return true;
         }
-        else return false;
     }
     public void getExp(float exp_amount)
     {

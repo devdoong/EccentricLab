@@ -19,7 +19,11 @@ public class SkillStateManager
             abilityState[skilldata.Key] = skilldata.Value.Damage; //데미지값 불러와줌
             abilityLevelState[skilldata.Key] = 0; //모두 0레벨로 시작할것임
             specialState[skilldata.Key] = skilldata.Value.SpecialValue; //스페셜값
+
+            if (skilldata.Key == "Arrow")
+                abilityLevelState[skilldata.Key] = 1;
         }
+
     }
     public float GetState(string name) //데미지(스킬수치) 반환
     {

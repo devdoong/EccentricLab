@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,7 +13,7 @@ public class SkillSelectButton : MonoBehaviour
     private Text text_level; private int level;
     private Text[] get_component; //자식에서 텍스트 컴포넌트 가져오는 용도
     string random_skill_name;
-
+    public static bool AllMax = false;
 
 
     private void Awake()
@@ -25,17 +26,22 @@ public class SkillSelectButton : MonoBehaviour
     void OnEnable()
     {
         random_skill_name = Managers.RandomSkill.GetRandomKey(); //랜덤 스킬 받아옴
-
-        if(random_skill_name == null)
+        if (transform.name == "3")
         {
-            gameObject.SetActive(false);
+            Debug.Log("transform : " + transform.name);
+            transform.gameObject.SetActive(AllMax);
+            Debug.Log(AllMax);
             return;
         }
-
-
+        if (random_skill_name == null && transform.name != "3") //다가져가고 남는게 없을경우에
+        {
+            gameObject.SetActive(false); //이 버튼은 꺼줌
+            return;
+        }
         icon.sprite = Managers.AbilityDatas.dic_skillData[random_skill_name].icon_sprite;
         level = Managers.SkillState.abilityLevelState[random_skill_name];
-        text_level.text = "Level: "+level.ToString();
+        text_level.text = "Level: " + level.ToString();
+
     }
 
 
@@ -45,6 +51,14 @@ public class SkillSelectButton : MonoBehaviour
         GameObject levelUp = Managers.Instance.Find_GO("LevelUp");
         Time.timeScale = 1f;
         SkillUpgrade(random_skill_name);
+        levelUp.SetActive(false);
+    }
+
+    public void HealClick()
+    {
+        Managers.HP.Heal();
+        GameObject levelUp = Managers.Instance.Find_GO("LevelUp");
+        Time.timeScale = 1f;
         levelUp.SetActive(false);
     }
 
@@ -77,7 +91,7 @@ public class SkillSelectButton : MonoBehaviour
 
     private void CallArrow()
     {
-
+        //필요없음
     }
 
     private void CallRotationalSolid() //이 함수는 외부 클래스에 존재해

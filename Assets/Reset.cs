@@ -8,10 +8,5 @@ public class Reset : MonoBehaviour
     {
         Managers.RandomSkill.list_keys.Clear();
         Managers.RandomSkill.Init();
-
-    }
-
-    private void OnEnable()
-    {
     }
 }
