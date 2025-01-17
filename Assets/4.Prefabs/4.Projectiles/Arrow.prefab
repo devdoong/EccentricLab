@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3066836444124522916}
   - component: {fileID: 648130387047560933}
   - component: {fileID: -2829605620395573162}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Arrow
   m_TagString: DamageSource
   m_Icon: {fileID: 0}

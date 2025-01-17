@@ -110,7 +110,7 @@ public class SkillSelectButton : MonoBehaviour
         }
 
         RePositioning=Instantiate(go);
-        RePositioning.transform.position = new Vector3(Managers.Player.position.x, 1f, Managers.Player.position.z);
+        RePositioning.transform.position = new Vector3(Managers.Player.position.x, 1.3f, Managers.Player.position.z);
     }
 
 }
