@@ -12,6 +12,9 @@ public class LevelManager
     private float expIncrease = 30; public float ExpIncrease => expIncrease;
     private float maxlevel = 30; public float MaxLevel => maxlevel;
 
+    public delegate void Callback();
+    public static event Callback LevelUP_CB;
+
 
     public void levelUp()
     {
@@ -23,7 +26,6 @@ public class LevelManager
         if (level >= maxlevel) 
         {
             maxLevel();
-            levelUp.SetActive(true);
         }
 
         else if ( level < maxlevel )
@@ -31,10 +33,14 @@ public class LevelManager
             this.level++;
             this.myExp = 0;
             this.maxExp += this.expIncrease;
-            levelUp.SetActive(true);
-
         }
+
+
+        LevelUP_CB?.Invoke();
+        levelUp.SetActive(true);
+
     }
+
     public void getExp(float exp_amount)
     {
         this.myExp += exp_amount;

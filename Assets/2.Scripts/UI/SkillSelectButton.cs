@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
@@ -9,11 +10,11 @@ public class SkillSelectButton : MonoBehaviour
 {
 
 
-    private Image icon;
-    private Text text_level; private int level;
-    private Text[] get_component; //자식에서 텍스트 컴포넌트 가져오는 용도
-    string random_skill_name;
-    public static bool AllMax = false;
+    public Image icon;
+    public Text text_level; private int level;
+    public Text[] get_component; //자식에서 텍스트 컴포넌트 가져오는 용도
+    public string random_skill_name;
+    public bool btn_state = true;
 
 
     private void Awake()
@@ -21,33 +22,6 @@ public class SkillSelectButton : MonoBehaviour
         icon = GetComponentsInChildren<Image>()[1];//본인의 Image도 포함되기 때문에 [1]을 줌
         get_component = GetComponentsInChildren<Text>(); //텍스트 컴포넌트 초기화
         text_level = get_component[0]; //초기화한 컴포넌트 사용할 변수에 한번 더 초기화
-    }
-
-    void OnEnable()
-    {
-        Debug.Log(transform.name + ": ON!!!!!");
-        random_skill_name = Managers.RandomSkill.GetRandomKey(); //랜덤 스킬 받아옴
-        if (transform.name == "3")
-        {
-            Debug.Log("transform : " + transform.name);
-            Debug.Log(AllMax);
-            if (AllMax == false)
-            {
-                transform.gameObject.SetActive(false);
-            }
-            return;
-        }
-
-        if (random_skill_name == null) //다가져가고 남는게 없을경우에
-        {
-            Debug.Log("잔여스킬 없음");
-            gameObject.SetActive(false); //이 버튼은 꺼줌
-            return;
-        }
-        icon.sprite = Managers.AbilityDatas.dic_skillData[random_skill_name].icon_sprite;
-        level = Managers.SkillState.abilityLevelState[random_skill_name];
-        text_level.text = "Level: " + level.ToString();
-
     }
 
     private void OnDisable()
@@ -58,11 +32,9 @@ public class SkillSelectButton : MonoBehaviour
 
     public void Click()
     {
-        Managers.SkillState.abilityLevelState[random_skill_name]++;
-        GameObject levelUp = Managers.Instance.Find_GO("LevelUp");
-        Time.timeScale = 1f;
-        SkillUpgrade(random_skill_name);
-        levelUp.SetActive(false);
+        SkillUpgrade(Managers.Instance.Skill_Selected(transform.name));
+
+        
     }
 
     public void HealClick()
@@ -116,7 +88,6 @@ public class SkillSelectButton : MonoBehaviour
             go.SetActive(true);
             return;
         }
-        Debug.Log("여기까지 내려옴");
         Managers.SkillState.specialState["RotationalSolid"] += Managers.AbilityDatas.dic_skillData["RotationalSolid"].SpecialValuePerLevel;
         go.SetActive(false);
         go.SetActive(true); //해당 오브젝트의 OnEnable에 회전속도 초기화가 들어있음

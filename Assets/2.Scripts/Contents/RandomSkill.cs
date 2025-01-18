@@ -4,20 +4,16 @@ using UnityEngine;
 
 public class RandomSkill
 {
-    System.Random random = new System.Random(); //랜덤 사용
-    public List<string> list_keys = new List<string>();
-    public bool ALLMAX = false;
+    System.Random random = new System.Random();
+    private HashSet<string> usedKeys = new HashSet<string>();
 
-    public void Init()
+    public string GetRandomKey()
     {
-        #region 딕셔너리 스킬들의 키값을 모두 List에다가 저장
-        list_keys.Clear();
+        List<string> list_keys = new List<string>();
 
-        //딕셔너리 스킬들의 키값을 모두 List에다가 저장
         foreach (var skill in Managers.AbilityDatas.dic_skillData)
         {
-            //하지만 만랩은 제외
-            if(Managers.SkillState.abilityLevelState[skill.Key] < 5)
+            if (Managers.SkillState.abilityLevelState[skill.Key] < 5 && !usedKeys.Contains(skill.Key))
             {
                 list_keys.Add(skill.Key);
             }
@@ -25,30 +21,17 @@ public class RandomSkill
 
         if (list_keys.Count == 0)
         {
-
-            Debug.Log("전부다 만랩입니다");
-            SkillSelectButton.AllMax = true;
-            Debug.Log(SkillSelectButton.AllMax);
+            Debug.Log("전부다 만랩이거나 사용 가능한 키가 없습니다");
+            return null;
         }
-        #endregion
+
+        string key = list_keys[random.Next(list_keys.Count)];
+        usedKeys.Add(key);
+        return key;
     }
 
-    public string GetRandomKey()
+    public void Reset()
     {
-        if (list_keys.Count == 0)
-            return null;
-
-        //전체 스킬 리스트에서 랜덤하여 반환.
-        string key = list_keys[random.Next(list_keys.Count)];
-
-        //가져갔으면 지움
-        list_keys.Remove(key);
-        
-
-        return key;
-
-        
-
+        usedKeys.Clear();
     }
 }
-
