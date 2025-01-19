@@ -1,0 +1,415 @@
+fileFormatVersion: 2
+guid: 28b0eed242d17fc409138e90b78405a4
+ModelImporter:
+  serializedVersion: 22200
+  internalIDToNameTable: []
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    rigImportErrors: "Invalid Avatar Rig Configuration. Missing or invalid transform:\n\tRequired
+      human bone 'LeftHand' not found\n"
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human:
+    - boneName: RigPelvis
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RigLThigh
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RigRThigh
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RigLCalf
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RigRCalf
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RigLFoot
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RigRFoot
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RigSpine1
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RigSpine2
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RigHead
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RigLUpperarm
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RigRUpperarm
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RigLForearm
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RigRForearm
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RigLToes1
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RigRToes1
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RigSpine3
+      humanName: UpperChest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RigLPalm
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RigRPalm
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RigNeck1
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: Fish Merman(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Fish Merman
+      parentName: Fish Merman(Clone)
+      position: {x: -0, y: 0, z: -0.00000000828473}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Rig
+      parentName: Fish Merman(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0.50000006, y: -0.50000006, z: -0.49999997, w: 0.49999997}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigLPlatform
+      parentName: Fish Merman(Clone)
+      position: {x: -0.1531465, y: -0.000000002309171, z: 0.023993153}
+      rotation: {x: 0.50000006, y: -0.50000006, z: -0.49999997, w: 0.49999997}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigPelvis
+      parentName: Fish Merman(Clone)
+      position: {x: 0.000000049259352, y: 0.8125091, z: -0.15842175}
+      rotation: {x: 0.5204997, y: -0.4786232, z: -0.5204996, w: 0.47862312}
+      scale: {x: 0.99999994, y: 0.99999994, z: 1}
+    - name: RigLThigh
+      parentName: RigPelvis
+      position: {x: -0.00063255307, y: 0.023016814, z: 0.15237692}
+      rotation: {x: -0.054245505, y: 0.9985018, z: -0.0071643996, w: 0.00059292227}
+      scale: {x: 0.99999994, y: 0.9999999, z: 1.0000001}
+    - name: RigLCalf
+      parentName: RigLThigh
+      position: {x: -0.38152736, y: -0.00000014305114, z: -0.0000004959106}
+      rotation: {x: -0.027959807, y: 0.0000006800101, z: -0.000002004606, w: 0.99960905}
+      scale: {x: 0.9999988, y: 1.0000013, z: 1}
+    - name: RigLFoot
+      parentName: RigLCalf
+      position: {x: -0.34232554, y: 0, z: -0.000000019073486}
+      rotation: {x: 0.01799563, y: 0.009498999, z: -0.4624141, w: 0.88643056}
+      scale: {x: 0.9999975, y: 1.0000024, z: 0.99999994}
+    - name: RigLToes1
+      parentName: RigLFoot
+      position: {x: -0.118654914, y: 0.0000000011920929, z: 0.000000009536743}
+      rotation: {x: 0.00003446311, y: 0.00043853105, z: -0.28804493, w: 0.9576168}
+      scale: {x: 1.0000001, y: 1, z: 0.9999999}
+    - name: RigRThigh
+      parentName: RigPelvis
+      position: {x: -0.0006327057, y: 0.023016796, z: -0.15237685}
+      rotation: {x: -0.11635843, y: 0.9931811, z: 0.007137317, w: -0.0010363074}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigRCalf
+      parentName: RigRThigh
+      position: {x: -0.39129415, y: -0.0000001001358, z: 0.0000004673004}
+      rotation: {x: 0.027660308, y: 0.0019760327, z: 0.14603266, w: 0.98889107}
+      scale: {x: 1.0000005, y: 0.99999994, z: 1.0000002}
+    - name: RigRFoot
+      parentName: RigRCalf
+      position: {x: -0.3667018, y: -0.000000009536743, z: 0.000000009536743}
+      rotation: {x: -0.015577864, y: -0.013128807, z: -0.63406473, w: 0.77301157}
+      scale: {x: 0.9999997, y: 0.9999996, z: 0.9999998}
+    - name: RigRToes1
+      parentName: RigRFoot
+      position: {x: -0.1186549, y: 0.00000002503395, z: 0}
+      rotation: {x: -0.00009473875, y: -0.00043700993, z: -0.16943486, w: 0.98554134}
+      scale: {x: 1.0000001, y: 1, z: 1.0000001}
+    - name: RigSpine1
+      parentName: RigPelvis
+      position: {x: -0.050328825, y: -0.0038506698, z: -0.0000000095567385}
+      rotation: {x: 0.00000001913473, y: -0.00000011743628, z: -0.099344976, w: 0.99505305}
+      scale: {x: 0.99999976, y: 0.99999976, z: 1}
+    - name: RigSpine2
+      parentName: RigSpine1
+      position: {x: -0.10160904, y: 0, z: 0}
+      rotation: {x: -0.00000003215338, y: 0.00000010676185, z: 0.05855617, w: 0.99828416}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1}
+    - name: RigSpine3
+      parentName: RigSpine2
+      position: {x: -0.09568031, y: 0, z: -4.5474734e-15}
+      rotation: {x: 0.000000008272931, y: -0.000000018425446, z: 0.026867185, w: 0.99963903}
+      scale: {x: 0.99999994, y: 1.0000001, z: 1}
+    - name: RigRibcage
+      parentName: RigSpine3
+      position: {x: -0.22003219, y: 0, z: 2.2737367e-15}
+      rotation: {x: -0.0000000014405376, y: -0.00000000831236, z: -0.07489171, w: 0.99719167}
+      scale: {x: 1.0000001, y: 1, z: 1}
+    - name: RigLCollarbone
+      parentName: RigRibcage
+      position: {x: 0.019114379, y: 0.11177215, z: 0.03316027}
+      rotation: {x: 0.06312575, y: 0.7144249, z: 0.1701784, w: 0.67576}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigLUpperarm
+      parentName: RigLCollarbone
+      position: {x: -0.33075675, y: -0.000000047683713, z: 0.00000015258789}
+      rotation: {x: -0.028503548, y: -0.0050709234, z: -0.16701637, w: 0.98552895}
+      scale: {x: 1, y: 1, z: 0.99999994}
+    - name: RigLForearm
+      parentName: RigLUpperarm
+      position: {x: -0.24227898, y: -0.000000019073486, z: -0.000000076293944}
+      rotation: {x: -0.00885911, y: 0.00876889, z: -0.03843809, w: 0.99918324}
+      scale: {x: 0.99999994, y: 1, z: 1.0000001}
+    - name: RigLPalm
+      parentName: RigLForearm
+      position: {x: -0.27016518, y: 0.000000028610229, z: 0.00000019073485}
+      rotation: {x: -0.6994038, y: -0.014106145, z: 0.016323755, w: 0.71440107}
+      scale: {x: 0.99999994, y: 1.0000002, z: 0.9999999}
+    - name: RigNeck1
+      parentName: RigRibcage
+      position: {x: -0.0030726623, y: 0.021274948, z: -0.000000012287186}
+      rotation: {x: 0.0000000413268, y: 0.000000039009315, z: -0.04863809, w: 0.9988165}
+      scale: {x: 1.0000002, y: 1.0000002, z: 1}
+    - name: RigNeck2
+      parentName: RigNeck1
+      position: {x: -0.055700988, y: 0, z: 4.5474734e-15}
+      rotation: {x: -0.000000036253706, y: -0.000000072214, z: -0.06417681, w: 0.9979386}
+      scale: {x: 0.9999999, y: 0.9999999, z: 1}
+    - name: RigHead
+      parentName: RigNeck2
+      position: {x: -0.06476135, y: 0.000000076293944, z: -4.5474734e-15}
+      rotation: {x: 0.0000000018710402, y: 0.000000053661907, z: 0.24137056, w: 0.97043306}
+      scale: {x: 0.9999998, y: 0.9999998, z: 1}
+    - name: RigRCollarbone
+      parentName: RigRibcage
+      position: {x: 0.019114379, y: 0.11177215, z: -0.03316027}
+      rotation: {x: -0.06312665, y: -0.71442497, z: 0.17017737, w: 0.6757601}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigRUpperarm
+      parentName: RigRCollarbone
+      position: {x: -0.33075675, y: 0.000000057220458, z: 0.00000022888183}
+      rotation: {x: 0.028490404, y: 0.0050738435, z: -0.16701627, w: 0.9855294}
+      scale: {x: 1, y: 0.9999999, z: 1.0000001}
+    - name: RigRForearm
+      parentName: RigRUpperarm
+      position: {x: -0.24227898, y: 0.000000038146972, z: -0.000000076293944}
+      rotation: {x: 0.008859097, y: -0.008769295, z: -0.038438573, w: 0.9991833}
+      scale: {x: 1, y: 0.99999994, z: 1.0000001}
+    - name: RigRPalm
+      parentName: RigRForearm
+      position: {x: -0.27016518, y: -0.000000038146972, z: 0.000000076293944}
+      rotation: {x: 0.69940376, y: 0.014106183, z: 0.016323699, w: 0.7144011}
+      scale: {x: 1, y: 1, z: 0.99999994}
+    - name: RigRPlatform
+      parentName: Fish Merman(Clone)
+      position: {x: 0.1531465, y: -0.0000000023091793, z: 0.023993202}
+      rotation: {x: 0.50000006, y: -0.50000006, z: -0.49999997, w: 0.49999997}
+      scale: {x: 1, y: 1, z: 1}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 3
+  humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
