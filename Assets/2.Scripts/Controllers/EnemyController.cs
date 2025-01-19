@@ -29,6 +29,10 @@ public class EnemyController : MonoBehaviour
     public float knockBackTimer = 0f; // 넉백 타이머
     static Rigidbody enemt_rigidbody;
     Color originalColor; //사용안함
+
+    //넉백 애니메이션
+    public Animator animator; // Animator 연결
+    public string hitTriggerName = "isHit"; // Trigger 이름
     #endregion
 
     #region 경험치 드랍에 필요한 변수
@@ -48,6 +52,12 @@ public class EnemyController : MonoBehaviour
         enemt_rigidbody = GetComponent<Rigidbody>();
         gemParent = GameObject.Find("@Gems");
         if (gemParent == null) Debug.LogWarning("@Gems를 하이러키창에서 찾을 수 없습니다.");
+
+        animator = GetComponent<Animator>();
+        if (animator == null)
+        {
+            Debug.LogError("Animator가 연결되지 않았습니다.");
+        }
     }
     private void Update()
     {
@@ -127,6 +137,10 @@ public class EnemyController : MonoBehaviour
                 gameObject.SetActive(false);
                 HP = MaxHP;
             }
+            #endregion
+
+            #region 넉백 애니메이션
+            animator.SetTrigger("isHit");
             #endregion
         }
         #endregion
