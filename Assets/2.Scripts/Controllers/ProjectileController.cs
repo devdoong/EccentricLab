@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
@@ -16,7 +17,6 @@ public class ProjectileController : MonoBehaviour
     private void Start()
     {
         LoadPrefab(prefabAddress);
-
     }
     private void LoadPrefab(string address) //어드레서블에서 프리팹 로드
     {
@@ -34,14 +34,10 @@ public class ProjectileController : MonoBehaviour
 
     public void Shoot()
     {
-        // 화살 생성
-
         for (int i = 0; i < Managers.SkillState.abilityLevelState["Arrow"]; i++)
         {
             GameObject arrow = Instantiate(arrowPrefab, shootPoint[i].position, shootPoint[i].rotation);
-
         }
-
     }
-    
+
 }

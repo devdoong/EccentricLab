@@ -6,7 +6,7 @@ public class MapController : MonoBehaviour
 {
     // 배열 크기를 9로 설정 (1부터 9까지)
     public static GameObject[] maps = new GameObject[9];
-    private GameObject center;
+    public GameObject center;
 
     // 중심 맵으로부터의 오프셋 (x, z)
     private Vector3[] offsets = new Vector3[]

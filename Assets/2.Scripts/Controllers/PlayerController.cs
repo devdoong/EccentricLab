@@ -10,17 +10,22 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 public class PlayerController : MonoBehaviour
 {
     #region 플레이어 이동에 필요한 변수
-    public float moveSpeed = 5.0f; 
+    public float moveSpeed = 5.0f;
     public float turnSpeed = 10.0f;
     static public Vector3 m_Movement;
     #endregion
+    private AudioSource[] shootSound;
+    private Animator animator;
 
-    #region 화살 발사에 필요한 변수
-    private GameObject arrowPrefab;
-    private Transform shootPoint;
-    #endregion
 
     public GameObject closeEnemy;
+
+    void Awake()
+    {
+        shootSound = GetComponents<AudioSource>();
+        animator = GetComponent<Animator>();
+    }
+
     void Update()
     {
 
@@ -42,8 +47,13 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, turnSpeed * Time.deltaTime);
         }
         #endregion
-
-        
     }
+
+    void ShootSound()
+    {
+        shootSound[0].Play();
+    }
+
+    
 
 }

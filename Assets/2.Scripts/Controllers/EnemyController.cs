@@ -24,11 +24,6 @@ public class EnemyController : MonoBehaviour
     #endregion
 
     #region 넉백을 위한 변수
-    private bool isKnockBack = false;
-    public float knockBackDuration = 0.2f; // 넉백 지속 시간
-    public float knockBackTimer = 0f; // 넉백 타이머
-    static Rigidbody enemt_rigidbody;
-    Color originalColor; //사용안함
 
     //넉백 애니메이션
     public Animator animator; // Animator 연결
@@ -47,10 +42,17 @@ public class EnemyController : MonoBehaviour
     public float damage_delayTime = 0.3f;
     #endregion
 
+    #region 오디오 소스
+    private AudioSource[] audioSources;
+    #endregion
+
+    private void Awake()
+    {
+        audioSources = GetComponents<AudioSource>();
+    }
     private void Start()
     {
         player = GameObject.Find("BasicArcher").transform;
-        enemt_rigidbody = GetComponent<Rigidbody>();
         gemParent = GameObject.Find("@Gems");
         if (gemParent == null) Debug.LogWarning("@Gems를 하이러키창에서 찾을 수 없습니다.");
 
@@ -84,9 +86,7 @@ public class EnemyController : MonoBehaviour
         else if (distance > stop_distance) isCollision = false;
         #endregion
 
-        #region 플레이어에게 전진 : 피격입은상태도 아니고 / 플레이어와 충돌 상태도 아니면
-        //순조롭게 전진
-
+        #region 전진/넉백
         anim_stateInfo = animator.GetCurrentAnimatorStateInfo(0);
 
         if (IsAnimationPlaying(animationName) == false && isCollision == false)
@@ -98,21 +98,6 @@ public class EnemyController : MonoBehaviour
             transform.Translate(Vector3.back * moveSpeed/2 * Time.deltaTime);
         }
         #endregion
-
-        /*#region 넉백을 위해 플레이어에게 전진을 일시정지하고 넉백이 이루어질 시간 체크
-        //전진하다가 데미지를 입어 넉백 타이머 시작 //위에 if문(플레이어에게 전진) 이 정지되어야 순수히 뒤로 넉백이 이루어질것임
-        *//*else if (isKnockBack == true)
-        {
-            knockBackTimer += Time.deltaTime; //넉백 타이머
-            transform.position = Vector3.MoveTowards(transform.position, transform.Find("KnockBackPosition").position, 3 * Time.deltaTime);
-            if (knockBackTimer >= knockBackDuration) //넉백 지속시간 충족했으면
-            {
-                knockBackTimer = 0;
-                isKnockBack = false; //넉백상태 아님으로 돌림
-            }
-
-        }*//*
-        #endregion*/
 
         #region 플레이어에게 데미지 입힘
         if(isCollision == true)
@@ -133,15 +118,15 @@ public class EnemyController : MonoBehaviour
         AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0); // 0은 기본 레이어 인덱스
         return stateInfo.IsName(name);
     }
+
     private void OnTriggerEnter(Collider other)
     {
         #region 데미지 입었을 때
         //데미지소스 태그를 가진 오브젝트가 트리거에 들어왔을 때만 비활성화
         if (other.CompareTag("DamageSource"))
         {
-            #region 체력감소, 넉백
+            #region 체력감소
             HP -= Managers.SkillState.GetState((other.transform.parent != null) ? other.transform.parent.name : other.transform.name);
-            isKnockBack = true;//넉백
             #endregion
 
             #region 사망처리 (비활성화, 잼드랍)
@@ -158,6 +143,15 @@ public class EnemyController : MonoBehaviour
             animator.SetTrigger("isHit");
 
             #endregion
+
+
+            audioSources[0].Play();
+
+            if (other.gameObject.name.Contains("Arrow"))
+            {
+                audioSources[1].Play();
+            }
+
         }
         #endregion
     }
