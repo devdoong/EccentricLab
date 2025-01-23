@@ -76,8 +76,7 @@ public class EnemyController : MonoBehaviour
         transform.rotation = Quaternion.Lerp(
             transform.rotation,
             targetRotation,
-            turnSpeed * Time.deltaTime
-        );
+            turnSpeed * Time.deltaTime);
         #endregion
 
         #region 플레이어와의 충돌 판단
@@ -141,7 +140,6 @@ public class EnemyController : MonoBehaviour
 
             #region 넉백 애니메이션
             animator.SetTrigger("isHit");
-
             #endregion
 
 

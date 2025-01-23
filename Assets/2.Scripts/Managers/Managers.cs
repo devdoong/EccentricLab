@@ -99,28 +99,27 @@ public class Managers : MonoBehaviour
     private void LevelUP_UIManager()
     {
         Managers.RandomSkill.Reset(); // 이전 선택된 스킬 초기화
-        int count = 0;
+        int count = 0; //
 
-        for (int i = 0; i < list_SkillSelect_btn.Length; i++)
+        for (int i = 0; i < list_SkillSelect_btn.Length; i++) //Length = 3 인 경우가 일반적. 스킬 선택 버튼이 3개니까.
         {
-            string random_skill_name = Managers.RandomSkill.GetRandomKey();
-            Debug.Log(random_skill_name);
-            selected[i] = random_skill_name;
+            string random_skill_name = Managers.RandomSkill.GetRandomKey(); //딕셔너리 형태로 보관된 전체 스킬들 중에서 랜덤한 하나의 키값을 가져옴
+            //Debug.Log(random_skill_name);
+            selected[i] = random_skill_name; //랜덤받아 온 스킬 삽입
 
-            if (random_skill_name != null)
+            if (random_skill_name != null) //스킬이 만랩이면 null을 반환함. 아닌 경우 아직 스킬레벨업이 가능하다는 뜻.
             {
-                list_SkillSelect_btn[i].SetActive(true);
+                list_SkillSelect_btn[i].SetActive(true); //GridLayout의 자식 Btn[i]를 활성화 해줌.
 
+                //string값에 맞는 spriteImage와 Text를 적용
                 UnityEngine.UI.Image[] get_imageComponent = list_SkillSelect_btn[i].GetComponentsInChildren<UnityEngine.UI.Image>();
                 UnityEngine.UI.Image image_level = get_imageComponent[1];
-
                 Text[] get_textComponent = list_SkillSelect_btn[i].GetComponentsInChildren<Text>();
                 Text text_level = get_textComponent[0];
-
                 text_level.text = "Level : " + Managers.SkillState.abilityLevelState[random_skill_name].ToString();
                 image_level.sprite = Managers.AbilityDatas.dic_skillData[random_skill_name].icon_sprite;
             }
-            else
+            else //가져갈게 없다면
             {
                 Debug.Log(list_SkillSelect_btn[i] + "는 가져갈게 없어서 활성화 불가");
                 count++;
@@ -166,6 +165,10 @@ public class Managers : MonoBehaviour
     public void Update()
     {
         closeEnemy = GetCloseEnemy();
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            Managers.Level.levelUp();
+        }
     }
 
     #region 유틸함수
