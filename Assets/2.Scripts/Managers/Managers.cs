@@ -59,10 +59,11 @@ public class Managers : MonoBehaviour
     {
         if (s_instance != null && s_instance != this)
         {
-            Destroy(gameObject);
+            Destroy(gameObject); 
             return;
         }
 
+        
         s_instance = this;
         DontDestroyOnLoad(gameObject);
 
@@ -70,11 +71,6 @@ public class Managers : MonoBehaviour
         _skillState.Init();
         _pool.Init();
         _damage.Init();
-/*
-        foreach (var data in SkillState.abilityLevelState.Keys.ToList())
-        {
-            SkillState.abilityLevelState[data] = 4;
-        }*/
 
         levelUp_UI = Managers.Instance.Find_GO("LevelUp");
         LevelManager.LevelUP_CB += LevelUP_UIManager;
@@ -82,13 +78,7 @@ public class Managers : MonoBehaviour
     }
 
 
-    public static Managers Instance
-    {
-        get
-        {
-            return s_instance;
-        }
-    }
+    public static Managers Instance { get { return s_instance; } }
 
 
     #endregion
